@@ -1,0 +1,234 @@
+==========================================================
+ SODA FLORY - CÓMO TRABAJAR CON LAS IMÁGENES
+==========================================================
+
+Esta guía explica cómo agregar, cambiar y organizar las
+fotografías de la página. No hace falta saber programar:
+solo se copian archivos y se cambia un texto en script.js.
+
+
+1. ESTRUCTURA DE CARPETAS
+----------------------------------------------------------
+
+Soda-Flory/
+  index.html
+  style.css
+  script.js
+  INSTRUCCIONES_IMAGENES.txt
+  imagenes/
+    logo-soda-flory.png
+    casado.jpg
+    hamburguesa.jpg
+    bebida-natural.jpg
+    caja-economica-1.jpg
+    miercoles-mil-1.jpg
+
+Los nombres de arriba son solo EJEMPLOS de organización.
+No significan que esos productos ya estén confirmados.
+
+IMPORTANTE: la carpeta "imagenes" debe estar al lado de
+index.html, no dentro de otra carpeta.
+
+
+2. CÓMO CREAR LA CARPETA "imagenes"
+----------------------------------------------------------
+
+La carpeta ya viene creada. Si por algún motivo no existe:
+
+  1. Abrí la carpeta Soda-Flory.
+  2. Clic derecho en un espacio vacío > Nueva carpeta.
+  3. Ponele el nombre exacto:  imagenes
+     (todo en minúscula, sin tilde).
+
+
+3. CÓMO GUARDAR UNA FOTOGRAFÍA
+----------------------------------------------------------
+
+  1. Pasá la foto del celular a la computadora (WhatsApp Web,
+     cable USB, correo o Google Fotos).
+  2. Copiá o arrastrá el archivo dentro de la carpeta imagenes.
+
+
+4. CÓMO CAMBIAR EL NOMBRE DE LA FOTOGRAFÍA
+----------------------------------------------------------
+
+Las fotos del celular tienen nombres como IMG_20261021_1432.jpg.
+Hay que renombrarlas con un nombre corto y claro:
+
+  - Windows: clic derecho en la foto > Cambiar nombre.
+  - Mac: seleccioná la foto y presioná Enter.
+  - Escribí el nombre nuevo, por ejemplo:  casado.jpg
+
+No borres el punto ni la extensión (.jpg, .png, .webp).
+
+
+5. REGLAS PARA LOS NOMBRES (evitan casi todos los problemas)
+----------------------------------------------------------
+
+  - Todo en minúscula.
+  - Sin espacios: usá guion medio (-).
+  - Sin tildes ni eñes: "pollo-a-la-plancha", no "pollo a la plancha".
+  - Sin símbolos raros: nada de  ( ) & # % ' ñ á é í ó ú
+  - Nombres cortos y descriptivos.
+
+  Bien:  casado.jpg   gallo-pinto.jpg   caja-economica-1.jpg
+  Mal:   Casado Especial (1).JPG   Gallo Pinto.jpeg   café.png
+
+Por qué: en un servidor web "Casado.jpg" y "casado.jpg" son
+archivos distintos. Si todo va en minúscula, no hay confusión.
+
+
+6. CÓMO ESCRIBIR LA RUTA EN script.js
+----------------------------------------------------------
+
+En script.js cada producto tiene un campo "imagen". Solo
+escribí el NOMBRE DEL ARCHIVO, sin la carpeta. La página ya
+sabe que está dentro de "imagenes/" (se configura en
+CONFIG.carpetaImagenes).
+
+Ejemplo, antes (sin foto):
+
+  { id: "casado", nombre: "Casado", descripcion: "...",
+    precio: 3000, categoria: "Platos fuertes",
+    imagen: "" },
+
+Después (con foto):
+
+  { id: "casado", nombre: "Casado", descripcion: "...",
+    precio: 3000, categoria: "Platos fuertes",
+    imagen: "casado.jpg" },
+
+Las rutas son RELATIVAS: no escribas C:\... ni https://...
+Así podés mover la página a otro alojamiento sin cambiar nada,
+siempre que muevas index.html y la carpeta imagenes juntos.
+
+
+7. CÓMO AGREGAR UN PRODUCTO NUEVO CON SU FOTO
+----------------------------------------------------------
+
+  1. Guardá la foto en imagenes/ con un nombre válido
+     (por ejemplo  arroz-con-pollo.jpg).
+  2. Abrí script.js con el Bloc de notas (o un editor como
+     VS Code).
+  3. Buscá la lista PRODUCTOS (sección 2: DATOS).
+  4. Copiá una línea de producto completa y pegala debajo.
+     Recordá la coma al final de cada línea, menos la última.
+  5. Cambiá los valores:
+
+     { id: "arroz-con-pollo",
+       nombre: "Arroz con pollo",
+       descripcion: "Con ensalada y tortilla.",
+       precio: 3500,
+       categoria: "Platos fuertes",
+       imagen: "arroz-con-pollo.jpg" },
+
+  Reglas:
+   - "id" debe ser ÚNICO (no repetir con otro producto) y sin
+     espacios ni tildes.
+   - "precio" es solo el número, sin ₡ ni puntos: 3500.
+   - "categoria" debe ser igual a una de la lista CATEGORIAS.
+     Para crear una categoría nueva, agregala primero a esa lista.
+   - Quitá la línea  demo: true  cuando el dato sea real.
+   - Guardá script.js y recargá la página (F5).
+
+  Para CAJAS y MIERCOLES_MIL el procedimiento es igual, en sus
+  listas respectivas. En las cajas, el contenido va en "incluye".
+  En Miércoles de mil el precio ₡1.000 se aplica solo
+  a los productos que pongás en esa lista.
+
+
+8. CÓMO SUSTITUIR UNA FOTOGRAFÍA SIN TOCAR EL CÓDIGO
+----------------------------------------------------------
+
+  1. Preparás la foto nueva.
+  2. Le ponés EXACTAMENTE el mismo nombre que la anterior
+     (por ejemplo casado.jpg).
+  3. La copiás dentro de imagenes/ y aceptás reemplazar.
+  4. Recargá la página con Ctrl + F5 (en celular, cerrá y
+     abrí la página) para que no muestre la foto vieja.
+
+Si la foto nueva es de otro formato (por ejemplo .png en vez
+de .jpg), entonces sí hay que cambiar el nombre en script.js.
+
+
+9. FORMATOS Y TAMAÑO RECOMENDADOS
+----------------------------------------------------------
+
+  - JPG:  ideal para fotos de comida. Es el más práctico.
+  - WebP: pesa menos que JPG con buena calidad. Funciona en
+          los navegadores modernos.
+  - PNG:  mejor para el logotipo o imágenes con fondo
+          transparente. Pesa más; no lo uses para fotos.
+
+  Tamaño sugerido para productos: unos 1000 x 750 píxeles
+  (proporción 4:3, horizontal). Peso ideal: menos de 300 KB
+  por foto, para que la página cargue rápido con datos móviles.
+  Si la foto pesa mucho, reducila con una herramienta gratuita
+  como squoosh.app antes de guardarla.
+
+  Consejos para tomar la foto: luz natural, plato centrado,
+  fondo limpio y la foto en horizontal.
+
+
+10. EL LOGOTIPO
+----------------------------------------------------------
+
+La página todavía no tiene logotipo oficial: solo muestra el
+nombre "Soda Flory" en texto. Cuando tengás el logo real:
+
+  1. Guardalo como  imagenes/logo-soda-flory.png
+  2. En index.html, buscá:
+       <span class="brand-name">Soda Flory</span>
+     y agregá justo antes:
+       <img class="brand-logo" src="imagenes/logo-soda-flory.png" alt="Logo de Soda Flory">
+  3. Si querés mostrar solo el logo, podés quitar el span.
+
+
+11. QUÉ HACER SI UNA IMAGEN NO APARECE
+----------------------------------------------------------
+
+Si el archivo no se encuentra, la página muestra un cuadro
+verde con la leyenda "Foto próximamente" (no se ve una imagen
+rota). Para encontrar el problema, revisá en este orden:
+
+  [ ] ¿La foto está dentro de la carpeta imagenes?
+  [ ] ¿La carpeta imagenes está junto a index.html?
+  [ ] ¿El nombre en script.js es IGUAL al del archivo?
+      (minúsculas, guiones, extensión).
+  [ ] ¿La extensión coincide? "casado.jpg" no es lo mismo
+      que "casado.jpeg" ni "casado.png".
+  [ ] ¿Windows oculta las extensiones y el archivo se llama
+      realmente "casado.jpg.jpg"? Activá Ver > Extensiones
+      de nombre de archivo en el Explorador.
+  [ ] ¿Hay comillas y coma bien puestas en script.js?
+      imagen: "casado.jpg",
+  [ ] ¿Recargaste con Ctrl + F5?
+
+Si aun así falla, abrí la página, presioná F12 y mirá la
+pestaña Console o Network: ahí aparece el nombre exacto que
+el navegador no logró encontrar.
+
+
+12. CÓMO MANTENER ORDENADAS LAS FOTOS
+----------------------------------------------------------
+
+Todas las fotos van en la carpeta imagenes. Para distinguir
+los grupos, usá prefijos en el nombre del archivo:
+
+  Platos y productos del menú:   casado.jpg, gallo-pinto.jpg,
+                                 hamburguesa.jpg, bebida-natural.jpg
+  Cajas:                         caja-economica-1.jpg,
+                                 caja-economica-2.jpg
+  Miércoles de mil:              miercoles-mil-1.jpg,
+                                 miercoles-mil-2.jpg
+  Logotipo:                      logo-soda-flory.png
+
+Conservá una copia de las fotos originales en otra carpeta
+de tu computadora (por ejemplo "Fotos originales Soda Flory"),
+y en imagenes/ dejá solo las versiones reducidas.
+
+Si en el futuro hay muchas fotos, se pueden crear subcarpetas
+(por ejemplo imagenes/cajas/). En ese caso, en script.js se
+escribe la subcarpeta en el campo imagen:  "cajas/caja-economica-1.jpg"
+
+==========================================================

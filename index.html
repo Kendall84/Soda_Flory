@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es-CR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soda Flory | Menú y pedidos por WhatsApp</title>
+  <meta name="description" content="Menú digital de Soda Flory. Mirá los productos, las cajas Flory y el Miércoles de mil, y hacé tu pedido por WhatsApp.">
+  <meta name="theme-color" content="#1E5B3A">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header" id="inicio">
+    <div class="top-bar">
+      <a class="brand" href="#inicio" aria-label="Soda Flory, ir al inicio">
+        <!-- Espacio para el logotipo real: ver INSTRUCCIONES_IMAGENES.txt -->
+        <span class="brand-name">Soda Flory</span>
+      </a>
+      <a class="btn btn-whatsapp btn-small" id="header-whatsapp" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+    </div>
+    <nav class="main-nav" aria-label="Secciones de la página">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#menu">Menú</a></li>
+        <li><a href="#cajas">Cajas económicas</a></li>
+        <li><a href="#miercoles">Miércoles de mil</a></li>
+        <li><a href="#pedido">Mi pedido <span class="nav-count" id="nav-count" hidden>0</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <h1 id="hero-title">Comida de soda, hecha con cariño.</h1>
+        <p class="hero-text">Elegí lo que querés, armá tu pedido y envialo por WhatsApp. Es rápido y sin vueltas.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#menu">Ver el menú</a>
+          <a class="btn btn-light" href="#miercoles">Miércoles de mil</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="demo-notice" role="note">
+      Versión de prueba: los productos, cajas y precios marcados como <strong>Demostración</strong> son ejemplos y todavía no son los oficiales de Soda Flory.
+    </div>
+
+    <!-- MENÚ -->
+    <section class="section" id="menu" aria-labelledby="menu-title">
+      <div class="section-head">
+        <h2 id="menu-title">Nuestro menú</h2>
+        <p>Escogé la cantidad y agregá al pedido lo que se te antoje.</p>
+      </div>
+      <div class="category-filter" id="category-filter" role="group" aria-label="Filtrar por categoría"></div>
+      <div class="product-grid" id="product-grid"></div>
+    </section>
+
+    <!-- CAJAS -->
+    <section class="section section-cajas" id="cajas" aria-labelledby="cajas-title">
+      <div class="section-inner">
+        <div class="section-head">
+          <h2 id="cajas-title">Cajas Flory: más productos, mejor precio</h2>
+          <p>Cada caja reúne varios productos en un solo pedido, a un precio conveniente.</p>
+        </div>
+        <div class="product-grid" id="cajas-grid"></div>
+      </div>
+    </section>
+
+    <!-- MIÉRCOLES DE MIL -->
+    <section class="section section-miercoles" id="miercoles" aria-labelledby="miercoles-title">
+      <div class="section-inner">
+        <div class="miercoles-banner">
+          <p class="miercoles-price" aria-hidden="true">₡1.000</p>
+          <div>
+            <h2 id="miercoles-title">¡Miércoles de mil en Soda Flory!</h2>
+            <p>Los miércoles, productos seleccionados a solo ₡1.000. Aprovechá y pedí antes de que se acaben.</p>
+          </div>
+        </div>
+        <div class="product-grid" id="miercoles-grid"></div>
+      </div>
+    </section>
+
+    <!-- CARRITO -->
+    <section class="section" id="pedido" aria-labelledby="pedido-title">
+      <div class="section-head">
+        <h2 id="pedido-title">Mi pedido</h2>
+        <p>Revisá tu pedido antes de enviarlo.</p>
+      </div>
+      <div class="cart" id="cart">
+        <p class="cart-empty" id="cart-empty">Todavía no has agregado nada. Elegí algo del menú, las cajas o el Miércoles de mil.</p>
+        <ul class="cart-list" id="cart-list"></ul>
+        <div class="cart-total" id="cart-total-row" hidden>
+          <span>Total del pedido</span>
+          <strong id="cart-total">₡0</strong>
+        </div>
+        <p class="cart-note" id="cart-note" hidden>El total no incluye costos de envío.</p>
+        <p class="cart-message" id="cart-message" role="status" aria-live="polite"></p>
+        <div class="cart-actions">
+          <button type="button" class="btn btn-whatsapp btn-block" id="send-order" disabled>Enviar pedido por WhatsApp</button>
+          <button type="button" class="btn btn-ghost btn-block" id="clear-cart" hidden>Vaciar pedido</button>
+        </div>
+        <p class="cart-help">Se abrirá WhatsApp con tu pedido escrito. Para que Soda Flory lo reciba, tenés que presionar enviar en WhatsApp y esperar su confirmación.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-name">Soda Flory</p>
+      <p>Gracias por visitarnos. ¡Buen provecho!</p>
+      <a class="btn btn-whatsapp" id="footer-whatsapp" href="#" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+      <!-- Espacio reservado: ubicación, horarios y redes sociales oficiales (agregar cuando estén confirmados) -->
+      <div class="footer-pending">
+        <p>Ubicación: pendiente de agregar</p>
+        <p>Horarios: pendiente de agregar</p>
+        <p>Redes sociales: pendiente de agregar</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="floating-cart" id="floating-cart" href="#pedido" hidden aria-label="Ir a mi pedido">
+    <span id="floating-count">0</span> en el pedido
+    <strong id="floating-total">₡0</strong>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
