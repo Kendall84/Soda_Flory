@@ -43,7 +43,7 @@ body {
   line-height: 1.5;
   color: var(--tinta);
   background: var(--fondo);
-  padding-bottom: 5rem;
+  padding-bottom: 5.5rem;
 }
 
 h1, h2, h3 { font-family: var(--fuente-titulos); line-height: 1.15; margin: 0; }
@@ -125,14 +125,6 @@ img { max-width: 100%; display: block; }
   border-bottom: 3px solid transparent;
 }
 .main-nav a:hover { border-bottom-color: var(--amarillo); color: #fff; }
-.nav-count {
-  background: var(--amarillo);
-  color: var(--tinta);
-  border-radius: 999px;
-  padding: 0 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 800;
-}
 
 /* ---------- Presentación ---------- */
 .hero { background: var(--verde); color: #fff; padding: 2.5rem 1rem 3rem; }
@@ -192,18 +184,6 @@ img { max-width: 100%; display: block; }
 }
 .product-media { position: relative; aspect-ratio: 4 / 3; background: var(--verde-claro); }
 .product-media img { width: 100%; height: 100%; object-fit: cover; }
-.photo-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-  color: var(--verde);
-  font-weight: 600;
-  background: repeating-linear-gradient(45deg, #e3efe5, #e3efe5 12px, #d6e7da 12px, #d6e7da 24px);
-}
 .badge {
   position: absolute;
   top: 0.6rem;
@@ -229,25 +209,6 @@ img { max-width: 100%; display: block; }
 .price-promo { color: var(--rojo); }
 .price-old { color: var(--tinta-suave); text-decoration: line-through; font-size: 0.95rem; }
 
-.card-actions { display: flex; gap: 0.6rem; align-items: center; margin-top: 0.5rem; }
-.card-actions .btn { flex: 1; }
-
-/* Selector de cantidad */
-.qty { display: inline-flex; align-items: center; border: 2px solid var(--linea); border-radius: 999px; background: #fff; }
-.qty button {
-  width: 44px;
-  height: 44px;
-  border: 0;
-  background: transparent;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--verde);
-  cursor: pointer;
-  border-radius: 999px;
-}
-.qty button:hover { background: var(--verde-claro); }
-.qty-value { min-width: 2rem; text-align: center; font-weight: 800; }
-
 /* ---------- Miércoles de mil ---------- */
 .miercoles-banner {
   display: flex;
@@ -267,57 +228,78 @@ img { max-width: 100%; display: block; }
 .miercoles-banner p { margin-top: 0.5rem; max-width: 36rem; color: #ffe9e6; }
 .section-miercoles .product-card { border-color: var(--amarillo); border-width: 2px; }
 
-/* ---------- Carrito ---------- */
-.cart { background: var(--papel); border: 1px solid var(--linea); border-radius: var(--radio); padding: 1rem; max-width: 700px; }
-.cart-empty { color: var(--tinta-suave); padding: 0.5rem 0; }
-.cart-list { display: flex; flex-direction: column; }
-.cart-item { padding: 0.9rem 0; border-bottom: 1px solid var(--linea); display: grid; gap: 0.5rem; }
-.cart-item-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
-.cart-item-name { font-weight: 700; }
-.cart-item-kind { display: inline-block; margin-left: 0.4rem; padding: 0 0.5rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; background: var(--verde-claro); color: var(--verde-oscuro); vertical-align: middle; }
-.cart-item-kind.is-promo { background: var(--rojo); color: #fff; }
-.cart-item-prices { font-size: 0.92rem; color: var(--tinta-suave); }
-.cart-item-prices .is-promo { color: var(--rojo); font-weight: 700; }
-.cart-item-bottom { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
-.cart-subtotal { font-weight: 800; }
-.btn-remove { min-height: 44px; padding: 0 0.75rem; border: 0; background: transparent; color: var(--rojo-oscuro); font: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; }
-.cart-total { display: flex; justify-content: space-between; align-items: baseline; padding: 1rem 0 0.25rem; font-size: 1.15rem; }
-.cart-total strong { font-size: 1.7rem; color: var(--verde); }
-.cart-note { font-size: 0.85rem; color: var(--tinta-suave); }
-.cart-message { min-height: 1.4rem; margin-top: 0.5rem; font-size: 0.95rem; color: var(--rojo-oscuro); font-weight: 600; }
-.cart-message.is-ok { color: var(--verde); }
-.cart-actions { display: grid; gap: 0.6rem; margin-top: 0.5rem; }
-.cart-help { margin-top: 0.9rem; font-size: 0.85rem; color: var(--tinta-suave); }
+
+/* ---------- Lista del menú (solo nombre y precio) ---------- */
+.menu-group + .menu-group { margin-top: 1.75rem; }
+.menu-group-title {
+  font-size: 1.35rem;
+  color: var(--verde);
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--amarillo);
+  margin-bottom: 0.25rem;
+}
+.menu-list { background: var(--papel); border: 1px solid var(--linea); border-radius: var(--radio); padding: 0 1rem; }
+.menu-list-single { margin-top: 0; }
+.menu-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--linea);
+}
+.menu-row:last-child { border-bottom: 0; }
+.menu-row-photo { width: 64px; height: 64px; flex: none; border-radius: 10px; object-fit: cover; background: var(--verde-claro); }
+.menu-row-text { flex: 1; min-width: 0; }
+.menu-row-name { font-weight: 700; font-size: 1.05rem; }
+.menu-row-desc { color: var(--tinta-suave); font-size: 0.9rem; }
+.menu-row-price { font-weight: 800; font-size: 1.15rem; color: var(--verde); white-space: nowrap; }
+
+/* ---------- Pedidos ---------- */
+.pedidos-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 640px;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  padding: 1.25rem;
+}
+.pedidos-box p { color: var(--tinta-suave); }
+.pedidos-box ol { margin: 0; padding-left: 1.2rem; color: var(--tinta); }
+.pedidos-box li { margin-top: 0.3rem; }
+
+/* ---------- Botón flotante de WhatsApp (lado derecho) ---------- */
+.floating-whatsapp {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 56px;
+  min-height: 56px;
+  padding: 0 1rem;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--whatsapp);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+.floating-whatsapp:hover { background: var(--whatsapp-oscuro); }
+.floating-whatsapp svg { width: 28px; height: 28px; flex: none; }
+.floating-whatsapp span { display: none; }
+@media (min-width: 640px) { .floating-whatsapp span { display: inline; } }
 
 /* ---------- Pie ---------- */
 .site-footer { background: var(--verde-oscuro); color: #e1eee4; padding: 2.5rem 1rem; }
 .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; gap: 0.9rem; justify-items: start; }
 .footer-name { font-family: var(--fuente-titulos); font-size: 1.8rem; color: #fff; font-weight: 700; }
 .footer-pending { font-size: 0.85rem; color: #a9c4b1; display: grid; gap: 0.15rem; }
-
-/* ---------- Botón flotante del pedido ---------- */
-.floating-cart {
-  position: fixed;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 60;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 460px;
-  margin: 0 auto;
-  min-height: 52px;
-  padding: 0.5rem 1.25rem;
-  border-radius: 999px;
-  background: var(--tinta);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-}
-.floating-cart[hidden] { display: none; }
-.floating-cart strong { color: var(--amarillo); font-size: 1.1rem; }
 
 /* ---------- Tabletas ---------- */
 @media (min-width: 640px) {
@@ -332,3 +314,65 @@ img { max-width: 100%; display: block; }
   .product-grid { grid-template-columns: repeat(3, 1fr); }
   .hero { padding: 4rem 1.5rem 4.5rem; }
 }
+
+
+/* ==========================================================
+   TEMA NAVIDEÑO
+   Para activarlo:    <body class="navidad">   (en index.html)
+   Para desactivarlo: <body>                   (vuelve el estilo normal)
+   Solo cambia colores y decoración; el resto de la página no se toca.
+   ========================================================== */
+
+body.navidad {
+  --verde: #0f4a2c;          /* verde pino */
+  --verde-oscuro: #0a3320;
+  --verde-claro: #e4f0e8;
+  --rojo: #b3122b;           /* rojo arándano */
+  --rojo-oscuro: #8c0d20;
+  --amarillo: #e8b84a;       /* dorado */
+  --amarillo-oscuro: #c99a2e;
+  --fondo: #f8faf8;          /* blanco nieve */
+  --linea: #d5e2d9;
+}
+
+/* Luces doradas debajo del encabezado */
+body.navidad .site-header {
+  border-bottom: 5px dotted var(--amarillo);
+}
+
+/* Nieve suave en la presentación */
+body.navidad .hero {
+  background:
+    radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.16) 0 3px, transparent 4px),
+    radial-gradient(circle at 70% 15%, rgba(255, 255, 255, 0.14) 0 4px, transparent 5px),
+    radial-gradient(circle at 85% 60%, rgba(255, 255, 255, 0.16) 0 3px, transparent 4px),
+    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.12) 0 4px, transparent 5px),
+    var(--verde);
+}
+
+/* Aviso de versión de prueba en dorado con texto oscuro (ya legible) */
+body.navidad .demo-notice { background: var(--amarillo); }
+
+body.navidad 
+/* Cajas: fondo verde muy claro con borde dorado */
+body.navidad .section-cajas {
+  border-top: 3px solid var(--amarillo);
+  border-bottom: 3px solid var(--amarillo);
+}
+
+/* Miércoles de mil: rojo profundo para que siga destacando entre verdes */
+body.navidad .section-miercoles {
+  background: linear-gradient(180deg, #8c0d20, #b3122b);
+}
+body.navidad .miercoles-price { color: var(--amarillo); }
+body.navidad .section-miercoles .product-card { border-color: var(--amarillo); }
+
+/* Pie de página con la misma línea de luces */
+body.navidad .site-footer { border-top: 5px dotted var(--amarillo); }
+
+
+/* ---------- Etiquetas dentro de las tarjetas (sin foto no hay huecos) ---------- */
+.product-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.product-tags:empty { display: none; }
+.product-tags .badge { position: static; }
+.product-media { aspect-ratio: 4 / 3; }
