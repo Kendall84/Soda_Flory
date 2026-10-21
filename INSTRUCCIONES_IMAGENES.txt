@@ -89,13 +89,13 @@ CONFIG.carpetaImagenes).
 Ejemplo, antes (sin foto):
 
   { id: "casado", nombre: "Casado", descripcion: "...",
-    precio: 3000, categoria: "Platos fuertes",
+    precio: 3000, categoria: "Comidas rápidas",
     imagen: "" },
 
 Después (con foto):
 
   { id: "casado", nombre: "Casado", descripcion: "...",
-    precio: 3000, categoria: "Platos fuertes",
+    precio: 3000, categoria: "Comidas rápidas",
     imagen: "casado.jpg" },
 
 Las rutas son RELATIVAS: no escribas C:\... ni https://...
@@ -112,14 +112,17 @@ siempre que muevas index.html y la carpeta imagenes juntos.
      VS Code).
   3. Buscá la lista PRODUCTOS (sección 2: DATOS).
   4. Copiá una línea de producto completa y pegala debajo.
+     (El menú general muestra nombre y precio; la foto aparece
+     como miniatura solo si el producto tiene  imagen: "archivo.jpg".
+     Las cajas y el Miércoles de mil muestran la foto grande.)
      Recordá la coma al final de cada línea, menos la última.
   5. Cambiá los valores:
 
      { id: "arroz-con-pollo",
        nombre: "Arroz con pollo",
-       descripcion: "Con ensalada y tortilla.",
+       descripcion: "Con ensalada y tortilla.",   (opcional)
        precio: 3500,
-       categoria: "Platos fuertes",
+       categoria: "Comidas rápidas",
        imagen: "arroz-con-pollo.jpg" },
 
   Reglas:
@@ -187,9 +190,8 @@ nombre "Soda Flory" en texto. Cuando tengás el logo real:
 11. QUÉ HACER SI UNA IMAGEN NO APARECE
 ----------------------------------------------------------
 
-Si el archivo no se encuentra, la página muestra un cuadro
-verde con la leyenda "Foto próximamente" (no se ve una imagen
-rota). Para encontrar el problema, revisá en este orden:
+Si el archivo no se encuentra, la página simplemente no muestra
+la foto (no se ve una imagen rota ni un espacio vacío). Para encontrar el problema, revisá en este orden:
 
   [ ] ¿La foto está dentro de la carpeta imagenes?
   [ ] ¿La carpeta imagenes está junto a index.html?
