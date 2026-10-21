@@ -24,7 +24,7 @@
         <li><a href="#menu">Menú</a></li>
         <li><a href="#cajas">Cajas económicas</a></li>
         <li><a href="#miercoles">Miércoles de mil</a></li>
-        <li><a href="#pedido">Mi pedido <span class="nav-count" id="nav-count" hidden>0</span></a></li>
+        <li><a href="#pedidos">Pedidos</a></li>
       </ul>
     </nav>
   </header>
@@ -33,7 +33,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-inner">
         <h1 id="hero-title">Comida de soda, hecha con cariño.</h1>
-        <p class="hero-text">Elegí lo que querés, armá tu pedido y envialo por WhatsApp. Es rápido y sin vueltas.</p>
+        <p class="hero-text">Mirá el menú, elegí lo que se te antoje y escribinos directo por WhatsApp. Es rápido y sin vueltas.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#menu">Ver el menú</a>
           <a class="btn btn-light" href="#miercoles">Miércoles de mil</a>
@@ -49,10 +49,10 @@
     <section class="section" id="menu" aria-labelledby="menu-title">
       <div class="section-head">
         <h2 id="menu-title">Nuestro menú</h2>
-        <p>Escogé la cantidad y agregá al pedido lo que se te antoje.</p>
+        <p>Precios en colones. Para pedir, escribinos por WhatsApp.</p>
       </div>
       <div class="category-filter" id="category-filter" role="group" aria-label="Filtrar por categoría"></div>
-      <div class="product-grid" id="product-grid"></div>
+      <div id="menu-list"></div>
     </section>
 
     <!-- CAJAS -->
@@ -80,26 +80,19 @@
       </div>
     </section>
 
-    <!-- CARRITO -->
-    <section class="section" id="pedido" aria-labelledby="pedido-title">
+    <!-- PEDIDOS -->
+    <section class="section" id="pedidos" aria-labelledby="pedidos-title">
       <div class="section-head">
-        <h2 id="pedido-title">Mi pedido</h2>
-        <p>Revisá tu pedido antes de enviarlo.</p>
+        <h2 id="pedidos-title">Pedidos</h2>
+        <p>Hacer tu pedido es muy fácil.</p>
       </div>
-      <div class="cart" id="cart">
-        <p class="cart-empty" id="cart-empty">Todavía no has agregado nada. Elegí algo del menú, las cajas o el Miércoles de mil.</p>
-        <ul class="cart-list" id="cart-list"></ul>
-        <div class="cart-total" id="cart-total-row" hidden>
-          <span>Total del pedido</span>
-          <strong id="cart-total">₡0</strong>
-        </div>
-        <p class="cart-note" id="cart-note" hidden>El total no incluye costos de envío.</p>
-        <p class="cart-message" id="cart-message" role="status" aria-live="polite"></p>
-        <div class="cart-actions">
-          <button type="button" class="btn btn-whatsapp btn-block" id="send-order" disabled>Enviar pedido por WhatsApp</button>
-          <button type="button" class="btn btn-ghost btn-block" id="clear-cart" hidden>Vaciar pedido</button>
-        </div>
-        <p class="cart-help">Se abrirá WhatsApp con tu pedido escrito. Para que Soda Flory lo reciba, tenés que presionar enviar en WhatsApp y esperar su confirmación.</p>
+      <div class="pedidos-box">
+        <ol>
+          <li>Elegí lo que querés del menú, las cajas o el Miércoles de mil.</li>
+          <li>Escribinos por WhatsApp con tu pedido.</li>
+          <li>Esperá la confirmación de Soda Flory.</li>
+        </ol>
+        <a class="btn btn-whatsapp" id="pedidos-whatsapp" href="#" target="_blank" rel="noopener">Hacer mi pedido por WhatsApp</a>
       </div>
     </section>
   </main>
@@ -118,9 +111,12 @@
     </div>
   </footer>
 
-  <a class="floating-cart" id="floating-cart" href="#pedido" hidden aria-label="Ir a mi pedido">
-    <span id="floating-count">0</span> en el pedido
-    <strong id="floating-total">₡0</strong>
+  <a class="floating-whatsapp" id="floating-whatsapp" href="#" target="_blank" rel="noopener" aria-label="Escribir a Soda Flory por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.7-5.4A8.4 8.4 0 1 1 21 11.5z"/>
+      <path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1.2-1.6-2-1-1 .8c-.9-.4-1.7-1.2-2.1-2.1l.8-1-1-2L9 8.5z" fill="currentColor" stroke="none"/>
+    </svg>
+    <span>WhatsApp</span>
   </a>
 
   <script src="script.js"></script>
