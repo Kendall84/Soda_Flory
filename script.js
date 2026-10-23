@@ -28,7 +28,7 @@ const CONFIG = {
   mensajeGeneral: "Hola, Soda Flory. Quisiera hacer un pedido.",
   // Enlace de Google Maps de la soda (pegalo entre las comillas).
   // Ejemplo: "https://maps.app.goo.gl/xxxxxxxx"
-  enlaceGoogleMaps: "",
+  enlaceGoogleMaps: "https://maps.app.goo.gl/ZBywp7JGUyHCi57MA?g_st=ic",
   direccionTexto: ""   // opcional: dirección escrita para mostrar debajo del mapa
 };
 
