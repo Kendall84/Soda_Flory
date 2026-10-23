@@ -89,13 +89,13 @@ CONFIG.carpetaImagenes).
 Ejemplo, antes (sin foto):
 
   { id: "casado", nombre: "Casado", descripcion: "...",
-    precio: 3000, categoria: "Comidas rápidas",
+    precio: 3000, categoria: "Rapiditas",
     imagen: "" },
 
 Después (con foto):
 
   { id: "casado", nombre: "Casado", descripcion: "...",
-    precio: 3000, categoria: "Comidas rápidas",
+    precio: 3000, categoria: "Rapiditas",
     imagen: "casado.jpg" },
 
 Las rutas son RELATIVAS: no escribas C:\... ni https://...
@@ -122,7 +122,7 @@ siempre que muevas index.html y la carpeta imagenes juntos.
        nombre: "Arroz con pollo",
        descripcion: "Con ensalada y tortilla.",   (opcional)
        precio: 3500,
-       categoria: "Comidas rápidas",
+       categoria: "Rapiditas",
        imagen: "arroz-con-pollo.jpg" },
 
   Reglas:

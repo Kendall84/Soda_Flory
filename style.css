@@ -1,22 +1,22 @@
 /* ==========================================================
    SODA FLORY - ESTILOS
-   Paleta: verde hoja, rojo tomate, amarillo sol, blanco hoja.
+   Paleta: negro, amarillo y blanco (rojo solo en Miércoles de mil, verde solo en WhatsApp).
    Para cambiar colores, editá solo las variables de :root.
    ========================================================== */
 
 :root {
-  --verde: #1e5b3a;
-  --verde-oscuro: #143d27;
-  --verde-claro: #e3efe5;
+  --verde: #111111;
+  --verde-oscuro: #000000;
+  --verde-claro: #fff4c7;
   --rojo: #d83a2e;
   --rojo-oscuro: #b02a20;
-  --amarillo: #ffc93c;
-  --amarillo-oscuro: #e0a800;
-  --fondo: #f6f8f2;
+  --amarillo: #ffc400;
+  --amarillo-oscuro: #b88a00;
+  --fondo: #fbfaf5;
   --papel: #ffffff;
-  --tinta: #1d2a22;
-  --tinta-suave: #55645a;
-  --linea: #d6dfd3;
+  --tinta: #1a1a1a;
+  --tinta-suave: #5a5a55;
+  --linea: #e3e0d3;
   --whatsapp: #1fa855;
   --whatsapp-oscuro: #15823f;
   --radio: 14px;
@@ -103,33 +103,39 @@ img { max-width: 100%; display: block; }
 .brand-name { font-family: var(--fuente-titulos); font-size: 1.6rem; font-weight: 700; letter-spacing: 0.01em; }
 .brand-logo { height: 40px; width: auto; }
 
-.main-nav { background: var(--verde-oscuro); overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.main-nav { background: var(--verde-oscuro); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.main-nav::-webkit-scrollbar { display: none; }
 .main-nav ul {
   display: flex;
-  gap: 0.25rem;
-  padding: 0 0.5rem;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
   max-width: 1100px;
   margin: 0 auto;
   white-space: nowrap;
 }
 .main-nav a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   min-height: 44px;
-  padding: 0 0.8rem;
-  color: #e9f2eb;
+  padding: 0 1rem;
+  color: #fff;
   text-decoration: none;
   font-size: 0.95rem;
-  font-weight: 600;
-  border-bottom: 3px solid transparent;
+  font-weight: 700;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: transparent;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
 }
-.main-nav a:hover { border-bottom-color: var(--amarillo); color: #fff; }
+.main-nav a svg { width: 20px; height: 20px; flex: none; }
+.main-nav a:hover { border-color: var(--amarillo); }
+.main-nav a.is-active { background: var(--amarillo); border-color: var(--amarillo); color: #111; }
 
 /* ---------- Presentación ---------- */
 .hero { background: var(--verde); color: #fff; padding: 2.5rem 1rem 3rem; }
 .hero-inner { max-width: 1100px; margin: 0 auto; }
-.hero h1 { font-size: clamp(2rem, 7vw, 3.4rem); max-width: 14ch; }
+.hero h1 { font-size: clamp(2rem, 7vw, 3.4rem); max-width: 20ch; }
 .hero-text { margin-top: 0.9rem; max-width: 34rem; font-size: 1.1rem; color: #e1eee4; }
 .hero-actions { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
@@ -148,27 +154,28 @@ img { max-width: 100%; display: block; }
 .section-head h2 { font-size: clamp(1.6rem, 5vw, 2.2rem); color: var(--verde); }
 .section-head p { margin-top: 0.4rem; color: var(--tinta-suave); max-width: 38rem; }
 
-/* Las secciones de color ocupan todo el ancho */
-.section-cajas, .section-miercoles { max-width: none; padding-left: 0; padding-right: 0; }
-.section-cajas > .section-inner, .section-miercoles > .section-inner { padding: 0 1rem; }
-.section-cajas { background: var(--verde-claro); }
-.section-cajas .section-head h2 { color: var(--verde-oscuro); }
+/* La sección de color ocupa todo el ancho */
+.section-miercoles { max-width: none; padding-left: 0; padding-right: 0; }
+.section-miercoles > .section-inner { padding: 0 1rem; }
 .section-miercoles { background: var(--rojo); color: #fff; }
 
 /* ---------- Filtro de categorías ---------- */
 .category-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
 .chip {
+  display: inline-flex;
+  align-items: center;
   min-height: 44px;
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 1.1rem;
   border: 2px solid var(--verde);
   border-radius: 999px;
-  background: transparent;
+  background: #fff;
   color: var(--verde);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
 }
-.chip[aria-pressed="true"] { background: var(--verde); color: #fff; }
+.chip:hover { border-color: var(--amarillo-oscuro); }
+.chip[aria-pressed="true"] { background: var(--verde); border-color: var(--verde); color: #fff; box-shadow: inset 0 -4px 0 var(--amarillo); }
 
 /* ---------- Tarjetas de producto ---------- */
 .product-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
@@ -305,7 +312,7 @@ img { max-width: 100%; display: block; }
 @media (min-width: 640px) {
   .product-grid { grid-template-columns: repeat(2, 1fr); }
   .miercoles-banner { flex-direction: row; align-items: center; gap: 2rem; }
-  .section-cajas > .section-inner, .section-miercoles > .section-inner { padding: 0 1.5rem; }
+  .section-miercoles > .section-inner { padding: 0 1.5rem; }
   .section, .hero, .top-bar { padding-left: 1.5rem; padding-right: 1.5rem; }
 }
 
@@ -354,12 +361,6 @@ body.navidad .hero {
 body.navidad .demo-notice { background: var(--amarillo); }
 
 body.navidad 
-/* Cajas: fondo verde muy claro con borde dorado */
-body.navidad .section-cajas {
-  border-top: 3px solid var(--amarillo);
-  border-bottom: 3px solid var(--amarillo);
-}
-
 /* Miércoles de mil: rojo profundo para que siga destacando entre verdes */
 body.navidad .section-miercoles {
   background: linear-gradient(180deg, #8c0d20, #b3122b);
@@ -376,3 +377,71 @@ body.navidad .site-footer { border-top: 5px dotted var(--amarillo); }
 .product-tags:empty { display: none; }
 .product-tags .badge { position: static; }
 .product-media { aspect-ratio: 4 / 3; }
+
+
+/* ---------- Aviso de servicio express ---------- */
+.express-note {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  padding: 0.6rem 1rem;
+  border-left: 5px solid var(--amarillo);
+  background: #fff;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--tinta);
+}
+
+/* ---------- Ubicación: mapa que abre Google Maps ---------- */
+.mapa-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 220px;
+  max-width: 760px;
+  overflow: hidden;
+  border-radius: var(--radio);
+  border: 2px solid var(--verde);
+  color: #fff;
+  text-decoration: none;
+  background: var(--verde);
+}
+.mapa-fondo {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 47%, rgba(255, 255, 255, 0.10) 47% 53%, transparent 53%),
+    linear-gradient(0deg, transparent 62%, rgba(255, 255, 255, 0.10) 62% 68%, transparent 68%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 48px),
+    #1d1d1d;
+}
+.mapa-pin {
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--amarillo);
+}
+.mapa-pin svg { width: 56px; height: 56px; filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.5)); }
+.mapa-texto {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+}
+.mapa-texto strong { font-family: var(--fuente-titulos); font-size: 1.3rem; }
+.mapa-direccion { font-size: 0.95rem; color: #eee; }
+.mapa-boton {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--amarillo);
+  color: #111;
+  font-weight: 800;
+}
+.mapa-card:hover .mapa-boton { background: #fff; }
+.ubicacion-pendiente { color: var(--tinta-suave); }

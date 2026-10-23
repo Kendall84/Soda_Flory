@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Soda Flory | Menú y pedidos por WhatsApp</title>
   <meta name="description" content="Menú digital de Soda Flory. Mirá los productos, las cajas Flory y el Miércoles de mil, y hacé tu pedido por WhatsApp.">
-  <meta name="theme-color" content="#1E5B3A">
+  <meta name="theme-color" content="#111111">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,11 +20,12 @@
     </div>
     <nav class="main-nav" aria-label="Secciones de la página">
       <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#menu">Menú</a></li>
-        <li><a href="#cajas">Cajas económicas</a></li>
-        <li><a href="#miercoles">Miércoles de mil</a></li>
-        <li><a href="#pedidos">Pedidos</a></li>
+        <li><a href="#inicio" class="is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Inicio</span></a></li>
+        <li><a href="#menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg><span>Menú</span></a></li>
+        <li><a href="#menu" data-categoria-nav="Cajas grandes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg><span>Cajas económicas</span></a></li>
+        <li><a href="#miercoles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12l-8 8-9-9V3h8l9 9z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg><span>Miércoles de mil</span></a></li>
+        <li><a href="#ubicacion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.500C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg><span>Ubicación</span></a></li>
+        <li><a href="#pedidos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6"/></svg><span>Pedidos</span></a></li>
       </ul>
     </nav>
   </header>
@@ -32,7 +33,7 @@
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-inner">
-        <h1 id="hero-title">Comida de soda, hecha con cariño.</h1>
+        <h1 id="hero-title">Soda Flory estamos para servirle</h1>
         <p class="hero-text">Mirá el menú, elegí lo que se te antoje y escribinos directo por WhatsApp. Es rápido y sin vueltas.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#menu">Ver el menú</a>
@@ -51,19 +52,9 @@
         <h2 id="menu-title">Nuestro menú</h2>
         <p>Precios en colones. Para pedir, escribinos por WhatsApp.</p>
       </div>
+      <p class="express-note" role="note"><strong>Contamos con servicio express.</strong> El costo del express no está incluido en el precio.</p>
       <div class="category-filter" id="category-filter" role="group" aria-label="Filtrar por categoría"></div>
       <div id="menu-list"></div>
-    </section>
-
-    <!-- CAJAS -->
-    <section class="section section-cajas" id="cajas" aria-labelledby="cajas-title">
-      <div class="section-inner">
-        <div class="section-head">
-          <h2 id="cajas-title">Cajas Flory: más productos, mejor precio</h2>
-          <p>Cada caja reúne varios productos en un solo pedido, a un precio conveniente.</p>
-        </div>
-        <div class="product-grid" id="cajas-grid"></div>
-      </div>
     </section>
 
     <!-- MIÉRCOLES DE MIL -->
@@ -80,6 +71,15 @@
       </div>
     </section>
 
+    <!-- UBICACIÓN -->
+    <section class="section" id="ubicacion" aria-labelledby="ubicacion-title">
+      <div class="section-head">
+        <h2 id="ubicacion-title">Estamos ubicados aquí</h2>
+        <p>Tocá el mapa y se abre Google Maps para que llegués fácil.</p>
+      </div>
+      <div id="ubicacion-contenido"></div>
+    </section>
+
     <!-- PEDIDOS -->
     <section class="section" id="pedidos" aria-labelledby="pedidos-title">
       <div class="section-head">
@@ -88,7 +88,7 @@
       </div>
       <div class="pedidos-box">
         <ol>
-          <li>Elegí lo que querés del menú, las cajas o el Miércoles de mil.</li>
+          <li>Elegí lo que querés del menú o del Miércoles de mil.</li>
           <li>Escribinos por WhatsApp con tu pedido.</li>
           <li>Esperá la confirmación de Soda Flory.</li>
         </ol>
@@ -102,9 +102,8 @@
       <p class="footer-name">Soda Flory</p>
       <p>Gracias por visitarnos. ¡Buen provecho!</p>
       <a class="btn btn-whatsapp" id="footer-whatsapp" href="#" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
-      <!-- Espacio reservado: ubicación, horarios y redes sociales oficiales (agregar cuando estén confirmados) -->
+      <!-- Espacio reservado: horarios y redes sociales oficiales (agregar cuando estén confirmados) -->
       <div class="footer-pending">
-        <p>Ubicación: pendiente de agregar</p>
         <p>Horarios: pendiente de agregar</p>
         <p>Redes sociales: pendiente de agregar</p>
       </div>
