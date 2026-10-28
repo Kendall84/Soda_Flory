@@ -14,17 +14,22 @@ Soda-Flory/
   index.html
   style.css
   script.js
+  _headers
   INSTRUCCIONES_IMAGENES.txt
+  LISTA_DE_FOTOS_CAJAS.txt
   imagenes/
-    logo-soda-flory.png
-    casado.jpg
-    hamburguesa.jpg
-    bebida-natural.jpg
-    caja-economica-1.jpg
-    miercoles-mil-1.jpg
-
-Los nombres de arriba son solo EJEMPLOS de organización.
-No significan que esos productos ya estén confirmados.
+    portada.jpg                  (foto de fondo de la portada)
+    caja-chicken.jpg             (fotos de las cajas: ver LISTA_DE_FOTOS_CAJAS.txt)
+    caja-mini-flower.jpg
+    caja-bomba.jpg
+    caja-3x3.jpg
+    caja-la-toxica.jpg
+    caja-4-piezas-de-pollo.jpg
+    caja-flory-1.jpg
+    caja-de-tacos.jpg
+    mascota-perros.jpg           (guardada para después)
+    mascota-perritos.jpg         (guardada para después)
+    logo-soda-flory.png          (cuando exista el logo real)
 
 IMPORTANTE: la carpeta "imagenes" debe estar al lado de
 index.html, no dentro de otra carpeta.
@@ -57,7 +62,7 @@ Hay que renombrarlas con un nombre corto y claro:
 
   - Windows: clic derecho en la foto > Cambiar nombre.
   - Mac: seleccioná la foto y presioná Enter.
-  - Escribí el nombre nuevo, por ejemplo:  casado.jpg
+  - Escribí el nombre nuevo, por ejemplo:  caja-familiar.jpg
 
 No borres el punto ni la extensión (.jpg, .png, .webp).
 
@@ -67,14 +72,14 @@ No borres el punto ni la extensión (.jpg, .png, .webp).
 
   - Todo en minúscula.
   - Sin espacios: usá guion medio (-).
-  - Sin tildes ni eñes: "pollo-a-la-plancha", no "pollo a la plancha".
+  - Sin tildes ni eñes: "caja-de-tacos", no "caja de tacos".
   - Sin símbolos raros: nada de  ( ) & # % ' ñ á é í ó ú
   - Nombres cortos y descriptivos.
 
-  Bien:  casado.jpg   gallo-pinto.jpg   caja-economica-1.jpg
-  Mal:   Casado Especial (1).JPG   Gallo Pinto.jpeg   café.png
+  Bien:  caja-familiar.jpg   caja-3x3.jpg   bebida-natural.jpg
+  Mal:   Caja Familiar (1).JPG   Caja 3x3.jpeg   café.png
 
-Por qué: en un servidor web "Casado.jpg" y "casado.jpg" son
+Por qué: en un servidor web "Caja-Familiar.jpg" y "caja-familiar.jpg" son
 archivos distintos. Si todo va en minúscula, no hay confusión.
 
 
@@ -88,56 +93,65 @@ CONFIG.carpetaImagenes).
 
 Ejemplo, antes (sin foto):
 
-  { id: "casado", nombre: "Casado", descripcion: "...",
-    precio: 3000, categoria: "Rapiditas",
+  { id: "bigbox-10", numero: 11, categoria: "Big Box",
+    nombre: "La Tóxica", descripcion: "...", precio: 5700,
     imagen: "" },
 
 Después (con foto):
 
-  { id: "casado", nombre: "Casado", descripcion: "...",
-    precio: 3000, categoria: "Rapiditas",
-    imagen: "casado.jpg" },
+  { id: "bigbox-10", numero: 11, categoria: "Big Box",
+    nombre: "La Tóxica", descripcion: "...", precio: 5700,
+    imagen: "caja-la-toxica.jpg" },
 
 Las rutas son RELATIVAS: no escribas C:\... ni https://...
 Así podés mover la página a otro alojamiento sin cambiar nada,
 siempre que muevas index.html y la carpeta imagenes juntos.
 
 
-7. CÓMO AGREGAR UN PRODUCTO NUEVO CON SU FOTO
+7. CÓMO AGREGAR UN PRODUCTO NUEVO (CON O SIN FOTO)
 ----------------------------------------------------------
 
-  1. Guardá la foto en imagenes/ con un nombre válido
-     (por ejemplo  arroz-con-pollo.jpg).
-  2. Abrí script.js con el Bloc de notas (o un editor como
-     VS Code).
+Todo el menú está en una sola lista, PRODUCTOS, dentro de script.js.
+La categoría decide cómo se muestra el producto:
+
+  - Big Box y Cajitas y Combos Flory: tarjeta con espacio de foto
+    (si no hay foto se ve el recuadro negro con la caja amarilla),
+    número, nombre, descripción y precio.
+  - Especialidades, Rapiditas, Extras y Bebidas: lista sencilla con
+    nombre, descripción y precio. Estas categorías NO muestran fotos.
+  - Miércoles de mil: lista aparte (MIERCOLES_MIL). Muestra foto
+    solo si el producto tiene una.
+
+Pasos:
+
+  1. (Solo cajas) Guardá la foto en imagenes/ con un nombre válido
+     (por ejemplo  caja-familiar.jpg).
+  2. Abrí script.js con el Bloc de notas (o un editor como VS Code).
   3. Buscá la lista PRODUCTOS (sección 2: DATOS).
-  4. Copiá una línea de producto completa y pegala debajo.
-     (El menú general muestra nombre y precio; la foto aparece
-     como miniatura solo si el producto tiene  imagen: "archivo.jpg".
-     Las cajas y el Miércoles de mil muestran la foto grande.)
-     Recordá la coma al final de cada línea, menos la última.
+  4. Copiá una línea de producto completa y pegala debajo del grupo
+     de su categoría. Recordá la coma al final de cada línea, menos
+     la última de la lista.
   5. Cambiá los valores:
 
-     { id: "arroz-con-pollo",
-       nombre: "Arroz con pollo",
-       descripcion: "Con ensalada y tortilla.",   (opcional)
-       precio: 3500,
-       categoria: "Rapiditas",
-       imagen: "arroz-con-pollo.jpg" },
+     { id: "bigbox-12", numero: 12, categoria: "Big Box",
+       nombre: "Caja nueva",
+       descripcion: "Qué incluye la caja.",
+       precio: 5000,
+       imagen: "caja-nueva.jpg" },
 
   Reglas:
    - "id" debe ser ÚNICO (no repetir con otro producto) y sin
      espacios ni tildes.
-   - "precio" es solo el número, sin ₡ ni puntos: 3500.
-   - "categoria" debe ser igual a una de la lista CATEGORIAS.
-     Para crear una categoría nueva, agregala primero a esa lista.
-   - Quitá la línea  demo: true  cuando el dato sea real.
+   - "numero" es el número que ve el cliente (Nº 12). Es opcional.
+   - "precio" es solo el número, sin ₡ ni puntos: 5000.
+   - "categoria" debe ser igual a una de la lista CATEGORIAS
+     (por ejemplo "Big Box" o "Rapiditas"). Para crear una
+     categoría nueva, agregala primero a esa lista.
+   - Si el producto lleva aviso (por ejemplo, salsas a escoger),
+     agregá  nota: "texto del aviso".
+   - Quitá la línea  demo: true  cuando el dato sea real; así
+     desaparece la etiqueta "Demostración".
    - Guardá script.js y recargá la página (F5).
-
-  Para CAJAS y MIERCOLES_MIL el procedimiento es igual, en sus
-  listas respectivas. En las cajas, el contenido va en "incluye".
-  En Miércoles de mil el precio ₡1.000 se aplica solo
-  a los productos que pongás en esa lista.
 
 
 8. CÓMO SUSTITUIR UNA FOTOGRAFÍA SIN TOCAR EL CÓDIGO
@@ -145,7 +159,7 @@ siempre que muevas index.html y la carpeta imagenes juntos.
 
   1. Preparás la foto nueva.
   2. Le ponés EXACTAMENTE el mismo nombre que la anterior
-     (por ejemplo casado.jpg).
+     (por ejemplo caja-familiar.jpg).
   3. La copiás dentro de imagenes/ y aceptás reemplazar.
   4. Recargá la página con Ctrl + F5 (en celular, cerrá y
      abrí la página) para que no muestre la foto vieja.
@@ -163,8 +177,9 @@ de .jpg), entonces sí hay que cambiar el nombre en script.js.
   - PNG:  mejor para el logotipo o imágenes con fondo
           transparente. Pesa más; no lo uses para fotos.
 
-  Tamaño sugerido para productos: unos 1000 x 750 píxeles
-  (proporción 4:3, horizontal). Peso ideal: menos de 300 KB
+  Tamaño sugerido para cajas: unos 1200 píxeles de ancho. La página
+  las muestra en proporción 4:3 y recorta un poco los bordes si la
+  foto es vertical. Peso ideal: menos de 210 KB
   por foto, para que la página cargue rápido con datos móviles.
   Si la foto pesa mucho, reducila con una herramienta gratuita
   como squoosh.app antes de guardarla.
@@ -190,20 +205,23 @@ nombre "Soda Flory" en texto. Cuando tengás el logo real:
 11. QUÉ HACER SI UNA IMAGEN NO APARECE
 ----------------------------------------------------------
 
-Si el archivo no se encuentra, la página simplemente no muestra
-la foto (no se ve una imagen rota ni un espacio vacío). Para encontrar el problema, revisá en este orden:
+Si el archivo no se encuentra, en las cajas se ve el recuadro negro
+con la caja amarilla (el espacio queda reservado) y en la portada se
+ve el fondo negro. Nunca se ve una imagen rota. Para encontrar el
+problema, revisá en este orden:
 
   [ ] ¿La foto está dentro de la carpeta imagenes?
   [ ] ¿La carpeta imagenes está junto a index.html?
   [ ] ¿El nombre en script.js es IGUAL al del archivo?
       (minúsculas, guiones, extensión).
-  [ ] ¿La extensión coincide? "casado.jpg" no es lo mismo
-      que "casado.jpeg" ni "casado.png".
+  [ ] ¿La extensión coincide? "caja-familiar.jpg" no es lo mismo
+      que "caja-familiar.jpeg" ni "caja-familiar.png".
   [ ] ¿Windows oculta las extensiones y el archivo se llama
-      realmente "casado.jpg.jpg"? Activá Ver > Extensiones
+      realmente "caja-familiar.jpg.jpg"? Activá Ver > Extensiones
       de nombre de archivo en el Explorador.
   [ ] ¿Hay comillas y coma bien puestas en script.js?
-      imagen: "casado.jpg",
+      imagen: "caja-familiar.jpg",
+  [ ] ¿Subiste la carpeta imagenes completa a GitHub?
   [ ] ¿Recargaste con Ctrl + F5?
 
 Si aun así falla, abrí la página, presioná F12 y mirá la
@@ -214,23 +232,32 @@ el navegador no logró encontrar.
 12. CÓMO MANTENER ORDENADAS LAS FOTOS
 ----------------------------------------------------------
 
-Todas las fotos van en la carpeta imagenes. Para distinguir
-los grupos, usá prefijos en el nombre del archivo:
+Todas las fotos van en la carpeta imagenes. Para distinguir los
+grupos, usá prefijos en el nombre del archivo:
 
-  Platos y productos del menú:   casado.jpg, gallo-pinto.jpg,
-                                 hamburguesa.jpg, bebida-natural.jpg
-  Cajas:                         caja-economica-1.jpg,
-                                 caja-economica-2.jpg
-  Miércoles de mil:              miercoles-mil-1.jpg,
-                                 miercoles-mil-2.jpg
-  Logotipo:                      logo-soda-flory.png
+  Cajas (Big Box y Cajitas):  caja-chicken.jpg, caja-3x3.jpg,
+                              caja-familiar.jpg
+  Portada:                    portada.jpg
+  Mascota (perritos):         mascota-perros.jpg, mascota-perritos.jpg
+  Miércoles de mil:           miercoles-mil-1.jpg, miercoles-mil-2.jpg
+  Logotipo:                   logo-soda-flory.png
 
-Conservá una copia de las fotos originales en otra carpeta
-de tu computadora (por ejemplo "Fotos originales Soda Flory"),
-y en imagenes/ dejá solo las versiones reducidas.
+Conservá una copia de las fotos originales en otra carpeta de tu
+computadora (por ejemplo "Fotos originales Soda Flory"), y en
+imagenes/ dejá solo las versiones reducidas.
 
 Si en el futuro hay muchas fotos, se pueden crear subcarpetas
-(por ejemplo imagenes/cajas/). En ese caso, en script.js se
-escribe la subcarpeta en el campo imagen:  "cajas/caja-economica-1.jpg"
+(por ejemplo imagenes/cajas/). En ese caso, en script.js se escribe
+la subcarpeta en el campo imagen:  "cajas/caja-familiar.jpg"
+
+
+13. AL SUBIR A GITHUB
+----------------------------------------------------------
+
+  1. Copiá todo el contenido de la carpeta Soda-Flory a tu repositorio
+     (incluida la carpeta imagenes y el archivo _headers).
+  2. Hacé el commit y el push.
+  3. Cloudflare publica el cambio en 1 o 2 minutos. Recargá con
+     Ctrl + F5.
 
 ==========================================================
