@@ -46,31 +46,49 @@ const CONFIG = {
    ========================================================== */
 
 // Categorías del menú, en el orden en que aparecen en pantalla.
-// formato "tarjetas": nombre, contenido, precio y foto opcional (cajas)
+// formato "tarjetas": nombre, descripción, precio y foto opcional
 // formato "lista":    solo nombre y precio (con miniatura si hay foto)
+// Una categoría sin productos no se muestra hasta que le agregues alguno.
 const CATEGORIAS = [
-  { nombre: "Cajas grandes",   formato: "tarjetas" },
-  { nombre: "Cajas pequeñas",  formato: "tarjetas" },
-  { nombre: "Especialidades",  formato: "lista" },
-  { nombre: "Rapiditas",       formato: "lista" },
-  { nombre: "Extras",          formato: "lista" },
-  { nombre: "Bebidas",         formato: "lista" }
+  { nombre: "Big Box",                formato: "tarjetas" },
+  { nombre: "Cajitas y Combos Flory", formato: "tarjetas" },
+  { nombre: "Especialidades",         formato: "lista" },
+  { nombre: "Rapiditas",              formato: "lista" },
+  { nombre: "Extras",                 formato: "lista" },
+  { nombre: "Bebidas",                formato: "lista" }
 ];
 
-// ---- Menú (DEMOSTRACIÓN: reemplazar con el menú real) ----
-// Para las cajas podés agregar  incluye: ["producto 1", "producto 2"]  y  descripcion.
+// ---- Menú ----
+// numero: número del producto en el menú (se muestra para pedir "la número 4")
+// nota:   aviso extra (por ejemplo, salsas a escoger)
+const NOTA_SALSAS = "Salsa a escoger: BBQ, mostaza miel o búfalo.";
+
 const PRODUCTOS = [
-  { id: "demo-caja-grande-1", nombre: "Caja grande de ejemplo 1", descripcion: "Caja de demostración. Contenido y precio pendientes de confirmar.", incluye: ["Producto 1 (por confirmar)", "Producto 2 (por confirmar)", "Producto 3 (por confirmar)"], precio: 6500, categoria: "Cajas grandes", imagen: "", demo: true },
-  { id: "demo-caja-grande-2", nombre: "Caja grande de ejemplo 2", descripcion: "Caja de demostración. Contenido y precio pendientes de confirmar.", incluye: ["Producto 1 (por confirmar)", "Producto 2 (por confirmar)"], precio: 5500, categoria: "Cajas grandes", imagen: "", demo: true },
-  { id: "demo-caja-pequena-1", nombre: "Caja pequeña de ejemplo 1", descripcion: "Caja de demostración. Contenido y precio pendientes de confirmar.", incluye: ["Producto 1 (por confirmar)", "Producto 2 (por confirmar)"], precio: 3500, categoria: "Cajas pequeñas", imagen: "", demo: true },
-  { id: "demo-caja-pequena-2", nombre: "Caja pequeña de ejemplo 2", descripcion: "Caja de demostración. Contenido y precio pendientes de confirmar.", incluye: ["Producto 1 (por confirmar)"], precio: 2800, categoria: "Cajas pequeñas", imagen: "", demo: true },
-  { id: "demo-especialidad-1", nombre: "Especialidad de ejemplo 1", precio: 4000, categoria: "Especialidades", imagen: "", demo: true },
-  { id: "demo-especialidad-2", nombre: "Especialidad de ejemplo 2", precio: 4500, categoria: "Especialidades", imagen: "", demo: true },
-  { id: "demo-rapidita-1", nombre: "Rapidita de ejemplo 1", precio: 2000, categoria: "Rapiditas", imagen: "", demo: true },
-  { id: "demo-rapidita-2", nombre: "Rapidita de ejemplo 2", precio: 2500, categoria: "Rapiditas", imagen: "", demo: true },
-  { id: "demo-extra-1", nombre: "Extra de ejemplo", precio: 1000, categoria: "Extras", imagen: "", demo: true },
-  { id: "demo-bebida-1", nombre: "Bebida de ejemplo 1", precio: 800, categoria: "Bebidas", imagen: "", demo: true },
-  { id: "demo-bebida-2", nombre: "Bebida de ejemplo 2", precio: 1200, categoria: "Bebidas", imagen: "", demo: true }
+  // ===== BIG BOX =====
+  { id: "bigbox-1",  numero: 1, categoria: "Big Box", nombre: "Chicken Flory", descripcion: "6 piezas de pollo con papas, doraditas y ensalada.", precio: 5500, imagen: "chicken-flory.jpg" },
+  { id: "bigbox-2a", numero: 2, categoria: "Big Box", nombre: "Mega Chicken (solas)", descripcion: "10 piezas de pollo solas.", nota: NOTA_SALSAS, precio: 6500, imagen: "" },
+  { id: "bigbox-2b", numero: 3, categoria: "Big Box", nombre: "Mega Chicken con mega papas", descripcion: "10 piezas de pollo con mega papas.", nota: NOTA_SALSAS, precio: 8600, imagen: "" },
+  { id: "bigbox-3",  numero: 4, categoria: "Big Box", nombre: "Mini Flower", descripcion: "2 empanadas, 2 rollos de tacos, 2 burritos, 1 hamburguesa, 1 perro, papas y doraditas.", precio: 6800, imagen: "mini-flower.jpg" },
+  { id: "bigbox-4",  numero: 5, categoria: "Big Box", nombre: "Bomba Mixta", descripcion: "Caja pizzera con una capa de nachos con carnes mixtas, seguida de una capa de papas con más carnes mixtas, salchichas y pepperoni, con nuestras deliciosas salsas y pico de gallo.", precio: 7600, imagen: "bomba-mixta.jpg" },
+  { id: "bigbox-5",  numero: 6, categoria: "Big Box", nombre: "Caja 3x3", descripcion: "3 hamburguesas y 3 empanadas pequeñas.", precio: 4900, imagen: "caja-3x3.jpg" },
+  { id: "bigbox-6",  numero: 7, categoria: "Big Box", nombre: "Caja Flory Empanadas", descripcion: "5 empanadas arregladas con papas y doraditas.", precio: 5000, imagen: "" },
+  { id: "bigbox-7",  numero: 8, categoria: "Big Box", nombre: "Caja para Compartir", descripcion: "4 hamburguesas con 3 salchipapas.", precio: 5600, imagen: "" },
+  { id: "bigbox-8",  numero: 9, categoria: "Big Box", nombre: "Caja Mixta", descripcion: "3 hamburguesas, 1 perro y 1 burrito con papas y doraditas.", precio: 5400, imagen: "" },
+  { id: "bigbox-9",  numero: 10, categoria: "Big Box", nombre: "Caja Familiar", descripcion: "Un entero de cantones con 4 piezas de pollo, 4 piezas de alas, 2 tacos chinos, 1 chuleta, 1 gallo de salchichón con papas y una gaseosa de 1.5 L.", precio: 12300, imagen: "" },
+  { id: "bigbox-10", numero: 11, categoria: "Big Box", nombre: "La Tóxica", descripcion: "2 hamburguesas, 2 tacos con papas y nachos medianos mixtos.", precio: 5700, imagen: "la-toxica.jpg" },
+
+  // ===== CAJITAS Y COMBOS FLORY =====
+  { id: "cajita-1",  numero: 1,  categoria: "Cajitas y Combos Flory", nombre: "4 piezas de pollo con papas y doraditas", precio: 3800, imagen: "cajita-1.jpg" },
+  { id: "cajita-2",  numero: 2,  categoria: "Cajitas y Combos Flory", nombre: "2 rollos de tacos y 2 piezas de pollo con papas y doraditas", precio: 3300, imagen: "cajita-2.jpg" },
+  { id: "cajita-3",  numero: 3,  categoria: "Cajitas y Combos Flory", nombre: "1 hamburguesa y 2 piezas de pollo con papas y doraditas", precio: 3300, imagen: "" },
+  { id: "cajita-4",  numero: 4,  categoria: "Cajitas y Combos Flory", nombre: "1 hamburguesa y 2 rollos de tacos con papas y doraditas", precio: 3300, imagen: "" },
+  { id: "cajita-5",  numero: 5,  categoria: "Cajitas y Combos Flory", nombre: "2 hamburguesas con salchipapas", precio: 3600, imagen: "" },
+  { id: "cajita-6",  numero: 6,  categoria: "Cajitas y Combos Flory", nombre: "2 burros grandes con papas y doraditas", precio: 4300, imagen: "" },
+  { id: "cajita-7",  numero: 7,  categoria: "Cajitas y Combos Flory", nombre: "1 hamburguesa, 1 burrito y 1 empanada con papas y doraditas", precio: 3700, imagen: "" },
+  { id: "cajita-8",  numero: 8,  categoria: "Cajitas y Combos Flory", nombre: "4 piezas de alas con chicharrón, papas, doraditas y ensalada", precio: 3600, imagen: "" },
+  { id: "cajita-9",  numero: 9,  categoria: "Cajitas y Combos Flory", nombre: "2 hamburguesas y 2 burros con papas y doraditas", precio: 4400, imagen: "" },
+  { id: "cajita-10", numero: 10, categoria: "Cajitas y Combos Flory", nombre: "2 burritos y 2 tacos con salchipapas", precio: 3400, imagen: "" },
+  { id: "cajita-11", numero: 11, categoria: "Cajitas y Combos Flory", nombre: "Salchipapas grandes con 3 tacos de carne mexicana, pico de gallo y salsas", precio: 3800, imagen: "cajita-11.jpg" }
 ];
 
 // ---- Miércoles de mil (DEMOSTRACIÓN: productos pendientes de confirmar) ----
@@ -109,12 +127,31 @@ function construirEnlaceWhatsApp(mensaje) {
 
 // Foto solo si existe el nombre del archivo; si no, no se dibuja nada.
 // Si el archivo no se encuentra, la foto se quita sin dejar un hueco.
+const MARCADOR_FOTO = '<div class="photo-reservada" aria-hidden="true">' +
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>' +
+  '<span>Soda Flory</span></div>';
+
 function crearFoto(item, clase) {
   if (!item.imagen) return "";
   const ruta = escaparHtml(CONFIG.carpetaImagenes + item.imagen);
   return '<img class="' + clase + '" src="' + ruta + '" alt="' + escaparHtml(item.nombre) +
-    '" loading="lazy" onerror="this.remove()">';
+    '" loading="lazy" data-quitar-si-falla>';
 }
+
+// Si un archivo de foto no existe, se quita la imagen sin dejar un hueco.
+// (Se usa un listener en vez de onerror="..." para poder aplicar una CSP estricta.)
+document.addEventListener("error", function (evento) {
+  const el = evento.target;
+  if (el && el.tagName === "IMG" && el.hasAttribute("data-quitar-si-falla")) {
+    const contenedor = el.parentElement;
+    if (contenedor && contenedor.classList.contains("is-reservada")) {
+      contenedor.innerHTML = MARCADOR_FOTO;   // se mantiene el espacio de la foto
+      return;
+    }
+    el.remove();
+    if (contenedor && contenedor.classList.contains("product-media") && !contenedor.children.length) contenedor.remove();
+  }
+}, true);
 
 function crearEtiquetaDemo(item) {
   return item.demo ? '<span class="badge badge-pending">Demostración</span>' : "";
@@ -127,8 +164,14 @@ function crearEtiquetaDemo(item) {
 
 let categoriaActiva = "Todos";
 
+function categoriasConProductos() {
+  return CATEGORIAS.filter(function (c) {
+    return PRODUCTOS.some(function (p) { return p.categoria === c.nombre; });
+  });
+}
+
 function dibujarFiltroCategorias() {
-  const nombres = ["Todos"].concat(CATEGORIAS.map(function (c) { return c.nombre; }));
+  const nombres = ["Todos"].concat(categoriasConProductos().map(function (c) { return c.nombre; }));
   document.getElementById("category-filter").innerHTML = nombres.map(function (nombre) {
     return '<button type="button" class="chip" data-categoria="' + escaparHtml(nombre) +
       '" aria-pressed="' + (nombre === categoriaActiva) + '">' + escaparHtml(nombre) + '</button>';
@@ -139,7 +182,6 @@ function crearFilaMenu(item) {
   if (!esPrecioValido(item.precio)) return "";
   const descripcion = item.descripcion ? '<div class="menu-row-desc">' + escaparHtml(item.descripcion) + '</div>' : "";
   return '<li class="menu-row">' +
-    crearFoto(item, "menu-row-photo") +
     '<div class="menu-row-text"><div class="menu-row-name">' + escaparHtml(item.nombre) + '</div>' + descripcion + '</div>' +
     '<span class="menu-row-price">' + formatearColones(item.precio) + '</span>' +
   '</li>';
@@ -148,8 +190,8 @@ function crearFilaMenu(item) {
 function dibujarMenu() {
   const contenedor = document.getElementById("menu-list");
   const categoriasAMostrar = categoriaActiva === "Todos"
-    ? CATEGORIAS
-    : CATEGORIAS.filter(function (c) { return c.nombre === categoriaActiva; });
+    ? categoriasConProductos()
+    : categoriasConProductos().filter(function (c) { return c.nombre === categoriaActiva; });
 
   const grupos = categoriasAMostrar.map(function (categoria) {
     const items = PRODUCTOS.filter(function (p) { return p.categoria === categoria.nombre; });
@@ -176,15 +218,21 @@ function crearTarjeta(item, esPromo) {
   const incluye = item.incluye
     ? '<ul class="product-includes">' + item.incluye.map(function (x) { return "<li>" + escaparHtml(x) + "</li>"; }).join("") + "</ul>"
     : "";
-  const foto = item.imagen ? '<div class="product-media">' + crearFoto(item, "product-photo") + '</div>' : "";
+  // Cajas: el espacio de la foto siempre está reservado. Miércoles de mil: solo si hay foto.
+  const reservar = !esPromo;
+  const foto = (item.imagen || reservar)
+    ? '<div class="product-media' + (reservar ? ' is-reservada' : '') + '">' + (item.imagen ? crearFoto(item, "product-photo") : MARCADOR_FOTO) + '</div>'
+    : "";
+  const numero = item.numero ? '<span class="badge badge-num">Nº ' + escaparHtml(item.numero) + '</span>' : "";
   const insignia = esPromo ? '<span class="badge badge-promo">Miércoles de mil</span>' : crearEtiquetaDemo(item);
+  const nota = item.nota ? '<p class="product-note">' + escaparHtml(item.nota) + '</p>' : "";
 
   return '<article class="product-card">' + foto +
     '<div class="product-body">' +
-      '<div class="product-tags">' + insignia + (esPromo ? crearEtiquetaDemo(item) : "") + '</div>' +
+      '<div class="product-tags">' + numero + insignia + (esPromo ? crearEtiquetaDemo(item) : "") + '</div>' +
       '<h3 class="product-name">' + escaparHtml(item.nombre) + '</h3>' +
       (item.descripcion ? '<p class="product-desc">' + escaparHtml(item.descripcion) + '</p>' : "") +
-      incluye +
+      incluye + nota +
       '<div class="price-row">' + precioHtml + '</div>' +
     '</div></article>';
 }
@@ -229,6 +277,12 @@ function activarNavegacionActiva() {
   secciones.forEach(function (sec) { observador.observe(sec); });
 }
 
+function mostrarAvisoDeDemostracion() {
+  const hayDemo = PRODUCTOS.concat(MIERCOLES_MIL).some(function (p) { return p.demo; });
+  const aviso = document.getElementById("demo-notice");
+  if (aviso) aviso.hidden = !hayDemo;
+}
+
 function iniciarPagina() {
   // Todos los botones de WhatsApp llevan directo al número configurado
   const enlace = construirEnlaceWhatsApp(CONFIG.mensajeGeneral);
@@ -237,6 +291,7 @@ function iniciarPagina() {
     if (el) el.href = enlace;
   });
 
+  mostrarAvisoDeDemostracion();
   dibujarFiltroCategorias();
   dibujarMenu();
   dibujarMiercoles();

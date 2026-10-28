@@ -6,6 +6,7 @@
   <title>Soda Flory | Menú y pedidos por WhatsApp</title>
   <meta name="description" content="Menú digital de Soda Flory. Mirá los productos, las cajas Flory y el Miércoles de mil, y hacé tu pedido por WhatsApp.">
   <meta name="theme-color" content="#111111">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +23,7 @@
       <ul>
         <li><a href="#inicio" class="is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Inicio</span></a></li>
         <li><a href="#menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg><span>Menú</span></a></li>
-        <li><a href="#menu" data-categoria-nav="Cajas grandes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg><span>Cajas económicas</span></a></li>
+        <li><a href="#menu" data-categoria-nav="Big Box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg><span>Cajas económicas</span></a></li>
         <li><a href="#miercoles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12l-8 8-9-9V3h8l9 9z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg><span>Miércoles de mil</span></a></li>
         <li><a href="#ubicacion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.500C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg><span>Ubicación</span></a></li>
         <li><a href="#pedidos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6"/></svg><span>Pedidos</span></a></li>
@@ -42,8 +43,8 @@
       </div>
     </section>
 
-    <div class="demo-notice" role="note">
-      Versión de prueba: los productos, cajas y precios marcados como <strong>Demostración</strong> son ejemplos y todavía no son los oficiales de Soda Flory.
+    <div class="demo-notice" id="demo-notice" role="note">
+      Los productos marcados como <strong>Demostración</strong> son ejemplos y todavía no son oficiales de Soda Flory.
     </div>
 
     <!-- MENÚ -->

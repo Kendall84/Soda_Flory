@@ -445,3 +445,39 @@ body.navidad .site-footer { border-top: 5px dotted var(--amarillo); }
 }
 .mapa-card:hover .mapa-boton { background: #fff; }
 .ubicacion-pendiente { color: var(--tinta-suave); }
+
+
+/* ---------- Número del producto y notas ---------- */
+.badge-num { background: var(--verde); color: var(--amarillo); }
+.product-note {
+  padding: 0.4rem 0.7rem;
+  border-left: 4px solid var(--amarillo);
+  background: var(--verde-claro);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+
+/* ---------- Fotos con proporción fija y tarjetas sin huecos ---------- */
+.product-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+.product-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.product-grid { align-items: start; }
+
+
+/* ---------- Espacio reservado para la foto de las cajas ---------- */
+.photo-reservada {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--amarillo);
+  background:
+    repeating-linear-gradient(45deg, rgba(255, 196, 0, 0.07) 0 14px, transparent 14px 28px),
+    #151515;
+}
+.photo-reservada svg { width: 56px; height: 56px; }
+.photo-reservada span { font-family: var(--fuente-titulos); font-weight: 700; color: #fff; opacity: 0.85; }
