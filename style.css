@@ -481,3 +481,12 @@ body.navidad .site-footer { border-top: 5px dotted var(--amarillo); }
 }
 .photo-reservada svg { width: 56px; height: 56px; }
 .photo-reservada span { font-family: var(--fuente-titulos); font-weight: 700; color: #fff; opacity: 0.85; }
+
+
+/* ---------- Foto de portada ---------- */
+.hero-inner { display: grid; gap: 1.75rem; align-items: center; }
+.hero-foto { margin: 0; border-radius: var(--radio); overflow: hidden; border: 3px solid var(--amarillo); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); }
+.hero-foto img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+@media (min-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr 1.2fr; gap: 2.5rem; }
+}
