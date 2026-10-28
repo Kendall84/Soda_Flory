@@ -9,7 +9,7 @@
    Cada elemento con  demo: true  es un dato de demostración.
    Cuando tengás el dato real, cambialo y quitá esa línea.
 
-   FOTOS: si un elemento tiene  imagen: "archivo.jpg"  se muestra
+   FOTOS: si un elemento tiene  imagen con el nombre del archivo  se muestra
    la foto; si dice  imagen: ""  simplemente no se muestra nada
    (sin espacios vacíos). Ver INSTRUCCIONES_IMAGENES.txt
    ========================================================== */

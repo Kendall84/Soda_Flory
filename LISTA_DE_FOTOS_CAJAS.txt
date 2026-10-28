@@ -1,44 +1,58 @@
 ==========================================================
- SODA FLORY - FOTOS LISTAS PARA LAS CAJAS
+ SODA FLORY - FOTOS DE LAS CAJAS (estado actual del sitio)
 ==========================================================
 
-Todas las fotos ya están en la carpeta imagenes/ con nombre válido
-(minúscula, sin espacios ni tildes), en JPG y con peso menor a 210 KB.
+Todas las fotos están en la carpeta  imagenes/  con nombre válido
+(minúscula, sin espacios ni tildes), en JPG y con menos de 210 KB.
 A "caja-flory-1" y "caja-de-tacos" se les quitaron las franjas
-negras y el texto que traían.
+negras y el texto que traían (incluido el precio escrito en la foto).
 
-CAJA (nombre original)      ->  CAMPO imagen EN script.js
+Ya están conectadas en script.js: no hay que editar nada para que
+se vean. Solo hay que subir la carpeta  imagenes  completa a GitHub.
+
+FOTOS CONECTADAS A LA PÁGINA
 ---------------------------------------------------------
-Mini Flower                 ->  imagen: "caja-mini-flower.jpg",
-Caja Flory 1                ->  imagen: "caja-flory-1.jpg",
-Caja 3x3                    ->  imagen: "caja-3x3.jpg",
-Chicken                     ->  imagen: "caja-chicken.jpg",
-4 piezas de pollo           ->  imagen: "caja-4-piezas-de-pollo.jpg",
-Caja de tacos               ->  imagen: "caja-de-tacos.jpg",
-La tóxica                   ->  imagen: "caja-la-toxica.jpg",
-Bomba                       ->  imagen: "caja-bomba.jpg",
+Archivo                      Producto en el menú                       id en script.js
+caja-chicken.jpg             Big Box Nº 1  Chicken Flory               bigbox-1
+caja-mini-flower.jpg         Big Box Nº 4  Mini Flower                 bigbox-3
+caja-bomba.jpg               Big Box Nº 5  Bomba Mixta                 bigbox-4
+caja-3x3.jpg                 Big Box Nº 6  Caja 3x3                    bigbox-5
+caja-la-toxica.jpg           Big Box Nº 11 La Tóxica                   bigbox-10
+caja-4-piezas-de-pollo.jpg   Cajitas y Combos Nº 1  (4 piezas)         cajita-1
+caja-flory-1.jpg             Cajitas y Combos Nº 2  (2 rollos + pollo) cajita-2
+caja-de-tacos.jpg            Cajitas y Combos Nº 11 (salchipapas)      cajita-11
 
-OTRAS FOTOS (no son cajas, quedan guardadas para después)
+OTRAS FOTOS
 ---------------------------------------------------------
-Perritos con gorra Soda Flory (vertical)    ->  mascota-perritos.jpg
-Perritos con gorra Soda Flory (horizontal)  ->  mascota-perros.jpg
+portada.jpg            Foto de fondo de la portada (ya conectada en index.html)
+mascota-perros.jpg     Perritos con gorra Soda Flory (horizontal). Guardada para después.
+mascota-perritos.jpg   Perritos con gorra Soda Flory (vertical).   Guardada para después.
 
-CÓMO USARLAS
+CAJAS QUE TODAVÍA NO TIENEN FOTO
 ---------------------------------------------------------
-1. Descomprimí el zip y copiá la carpeta  imagenes  dentro de tu
-   repositorio de GitHub, junto a index.html (si ya existe, mezclá
-   el contenido; no borres las otras fotos).
-2. En script.js, en la línea de cada caja, poné el nombre de la
-   tabla de arriba en el campo imagen. Ejemplo:
+Big Box:  Nº 2 Mega Chicken (solas), Nº 3 Mega Chicken con mega papas,
+          Nº 7 Caja Flory Empanadas, Nº 8 Caja para Compartir,
+          Nº 9 Caja Mixta, Nº 10 Caja Familiar.
+Cajitas:  Nº 3 al Nº 10.
 
-     { id: "mini-flower", nombre: "Mini Flower", ...,
-       imagen: "caja-mini-flower.jpg" },
+Mientras no haya foto, la caja muestra un recuadro negro con una caja
+amarilla y la marca "Soda Flory" (el espacio queda reservado).
 
-   Solo el nombre del archivo; la página ya busca en imagenes/.
-3. Subí los cambios (commit) y esperá 1 o 2 minutos a que GitHub
-   Pages publique. Recargá con Ctrl + F5.
+CÓMO AGREGAR UNA FOTO NUEVA A UNA CAJA
+---------------------------------------------------------
+1. Guardá la foto en imagenes/ con un nombre válido, por ejemplo:
+   caja-familiar.jpg
+2. Abrí script.js y buscá la línea de esa caja (por el nombre).
+3. Cambiá  imagen: ""  por  imagen: "caja-familiar.jpg"
+   (solo el nombre del archivo; la página ya busca en imagenes/).
+4. Subí los cambios a GitHub y esperá 1 o 2 minutos a que Cloudflare
+   publique. Recargá con Ctrl + F5.
 
-PRECIO: la foto de la caja de tacos traía escrito "Salchipapa
-grande, 3 tacos, carne desmechada, picó de gallo, salsas 3800".
-Usalo como descripción/precio de esa caja si es el dato correcto.
+DATOS PARA CONFIRMAR
+---------------------------------------------------------
+- caja-flory-1.jpg está en la Cajita Nº 2 (2 rollos de tacos y 2
+  piezas de pollo), NO en "Caja Flory Empanadas" (Big Box Nº 7),
+  porque la foto no tiene empanadas.
+- Cajita Nº 11: la foto decía "carne desmechada" y el menú dice
+  "carne mexicana". Precio confirmado: ₡3.800.
 ==========================================================

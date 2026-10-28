@@ -510,3 +510,11 @@ body.navidad .site-footer { border-top: 5px dotted var(--amarillo); }
 .hero-inner { position: relative; z-index: 1; display: block; width: 100%; }
 .hero h1, .hero-text { text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7); }
 .hero-text { color: #fff; }
+
+
+/* ---------- Página de diagnóstico ---------- */
+.diag-lista { display: grid; gap: 0.4rem; margin: 1rem 0; }
+.diag-lista li { padding: 0.55rem 0.8rem; border-radius: 8px; font-weight: 600; background: #fff; border: 1px solid var(--linea); }
+.diag-ok { color: #0d6b34; }
+.diag-fallo { color: #b02a20; }
+.diag-resumen { margin-bottom: 1rem; font-weight: 800; }
