@@ -7,7 +7,7 @@
   <meta name="description" content="Menú digital de Soda Flory. Mirá los productos, las cajas Flory y el Miércoles de mil, y hacé tu pedido por WhatsApp.">
   <meta name="theme-color" content="#111111">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -33,7 +33,11 @@
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-fondo" src="imagenes/portada.jpg" width="1600" height="900" fetchpriority="high" alt="Dos perritos con gorro y delantal de Soda Flory, sonriendo en la cocina de la soda">
+      <picture>
+        <!-- En teléfonos se usa la imagen vertical; en computadora, la horizontal -->
+        <source media="(max-width: 639px)" srcset="imagenes/portada-movil.jpg" width="720" height="1280">
+        <img class="hero-fondo" src="imagenes/portada.jpg" width="1600" height="900" fetchpriority="high" alt="Dos perritos con gorro y delantal de Soda Flory, sonriendo en la cocina de la soda">
+      </picture>
       <div class="hero-inner">
         <div class="hero-texto">
           <h1 id="hero-title">Soda Flory estamos para servirle</h1>
