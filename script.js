@@ -48,7 +48,7 @@ const CONFIG = {
 // Categorías del menú, en el orden en que aparecen en pantalla.
 // formato "tarjetas": nombre, descripción, precio y foto opcional
 // formato "lista":    solo nombre y precio (con miniatura si hay foto)
-// Una categoría sin productos no se muestra hasta que le agregues alguno.
+// Todas las categorías aparecen siempre; "Todos" solo muestra las que ya tienen productos.
 const CATEGORIAS = [
   { nombre: "Big Box",                formato: "tarjetas" },
   { nombre: "Cajitas y Combos Flory", formato: "tarjetas" },
@@ -88,7 +88,22 @@ const PRODUCTOS = [
   { id: "cajita-8",  numero: 8,  categoria: "Cajitas y Combos Flory", nombre: "4 piezas de alas con chicharrón, papas, doraditas y ensalada", precio: 3600, imagen: "" },
   { id: "cajita-9",  numero: 9,  categoria: "Cajitas y Combos Flory", nombre: "2 hamburguesas y 2 burros con papas y doraditas", precio: 4400, imagen: "" },
   { id: "cajita-10", numero: 10, categoria: "Cajitas y Combos Flory", nombre: "2 burritos y 2 tacos con salchipapas", precio: 3400, imagen: "" },
-  { id: "cajita-11", numero: 11, categoria: "Cajitas y Combos Flory", nombre: "Salchipapas grandes con 3 tacos de carne mexicana, pico de gallo y salsas", precio: 3800, imagen: "cajita-11.jpg" }
+  { id: "cajita-11", numero: 11, categoria: "Cajitas y Combos Flory", nombre: "Salchipapas grandes con 3 tacos de carne mexicana, pico de gallo y salsas", precio: 3800, imagen: "cajita-11.jpg" },
+
+  // ===== ESPECIALIDADES (DEMOSTRACIÓN: reemplazar con el menú real) =====
+  { id: "demo-especialidad-1", categoria: "Especialidades", nombre: "Especialidad de ejemplo 1", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 4000, imagen: "", demo: true },
+  { id: "demo-especialidad-2", categoria: "Especialidades", nombre: "Especialidad de ejemplo 2", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 4500, imagen: "", demo: true },
+
+  // ===== RAPIDITAS (DEMOSTRACIÓN: reemplazar con el menú real) =====
+  { id: "demo-rapidita-1", categoria: "Rapiditas", nombre: "Rapidita de ejemplo 1", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 2000, imagen: "", demo: true },
+  { id: "demo-rapidita-2", categoria: "Rapiditas", nombre: "Rapidita de ejemplo 2", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 2500, imagen: "", demo: true },
+
+  // ===== EXTRAS (DEMOSTRACIÓN: reemplazar con el menú real) =====
+  { id: "demo-extra-1", categoria: "Extras", nombre: "Extra de ejemplo", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 1000, imagen: "", demo: true },
+
+  // ===== BEBIDAS (DEMOSTRACIÓN: reemplazar con el menú real) =====
+  { id: "demo-bebida-1", categoria: "Bebidas", nombre: "Bebida de ejemplo 1", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 800, imagen: "", demo: true },
+  { id: "demo-bebida-2", categoria: "Bebidas", nombre: "Bebida de ejemplo 2", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 1200, imagen: "", demo: true }
 ];
 
 // ---- Miércoles de mil (DEMOSTRACIÓN: productos pendientes de confirmar) ----
@@ -164,10 +179,9 @@ function crearEtiquetaDemo(item) {
 
 let categoriaActiva = "Todos";
 
+// Todas las categorías se muestran siempre en los botones de filtro.
 function categoriasConProductos() {
-  return CATEGORIAS.filter(function (c) {
-    return PRODUCTOS.some(function (p) { return p.categoria === c.nombre; });
-  });
+  return CATEGORIAS;
 }
 
 function dibujarFiltroCategorias() {
