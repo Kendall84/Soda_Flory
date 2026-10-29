@@ -5,7 +5,7 @@
    Solo editá las listas de la sección 2:
      - CATEGORIAS      (categorías y su orden)
      - PRODUCTOS       (todo el menú, incluidas las cajas)
-     - MIERCOLES_MIL   (productos de la promoción)
+     - MIERCOLES_IMAGEN (imagen única de la promoción)
    Productos de lista con varios precios: usá  variantes: [{ etiqueta: "Solo", precio: 1300 }, …]
    Cada elemento con  demo: true  es un dato de demostración.
    Cuando tengás el dato real, cambialo y quitá esa línea.
@@ -22,7 +22,7 @@
 
 const CONFIG = {
   // Número de WhatsApp de Soda Flory en formato internacional (Costa Rica = 506)
-  numeroWhatsApp: "50663783156",
+  numeroWhatsApp: "50689344447",
   simboloMoneda: "₡",
   carpetaImagenes: "imagenes/",   // ruta relativa: funciona en cualquier alojamiento
   precioMiercolesDeMil: 1000,
@@ -133,17 +133,18 @@ const PRODUCTOS = [
   { id: "ext-gelatina", categoria: "Extras", nombre: "Gelatina tricolor", precio: 500 },
 
   // ===== BEBIDAS =====
-  { id: "beb-gaseosa", categoria: "Bebidas", nombre: "Gaseosa", variantes: [{ etiqueta: "355 ml", precio: 450 }, { etiqueta: "Litro y medio", precio: 1500 }] },
+  { id: "beb-gaseosa", categoria: "Bebidas", nombre: "Gaseosa", variantes: [{ etiqueta: "Pequeña", precio: 400 }, { etiqueta: "355 ml", precio: 450 }, { etiqueta: "Litro y medio", precio: 1500 }, { etiqueta: "Grande", precio: 1550 }] },
   { id: "beb-fresco", categoria: "Bebidas", nombre: "Fresco natural", precio: 500 }
 ];
 
-// ---- Miércoles de mil (DEMOSTRACIÓN: productos pendientes de confirmar) ----
-// El precio promocional se toma de CONFIG.precioMiercolesDeMil.
-// "precioNormal" es opcional: si lo ponés, se muestra tachado.
-const MIERCOLES_MIL = [
-  { id: "demo-miercoles-1", nombre: "Producto de miércoles de ejemplo 1", descripcion: "Producto de demostración. Reemplazar con un producto confirmado para la promoción.", precioNormal: null, imagen: "", demo: true },
-  { id: "demo-miercoles-2", nombre: "Producto de miércoles de ejemplo 2", descripcion: "Producto de demostración. Reemplazar con un producto confirmado para la promoción.", precioNormal: null, imagen: "", demo: true }
-];
+// ---- Miércoles de mil ----
+// Una sola imagen con los productos de la promoción.
+// Cuando tengás la foto: guardala en imagenes/ y escribí su nombre en  imagen
+// (por ejemplo "miercoles-mil.jpg"). Mientras esté vacío se muestra el espacio reservado.
+const MIERCOLES_IMAGEN = {
+  imagen: "",
+  nombre: "Productos del Miércoles de mil en Soda Flory"
+};
 
 
 /* ==========================================================
@@ -292,12 +293,11 @@ function crearTarjeta(item, esPromo) {
 }
 
 function dibujarMiercoles() {
-  const items = MIERCOLES_MIL.map(function (m) {
-    return crearTarjeta({ ...m, precio: CONFIG.precioMiercolesDeMil }, true);
-  });
-  document.getElementById("miercoles-grid").innerHTML = items.length
-    ? items.join("")
-    : '<p>Pronto vamos a publicar los productos de la promoción.</p>';
+  const hayFoto = Boolean(MIERCOLES_IMAGEN.imagen);
+  document.getElementById("miercoles-grid").innerHTML =
+    '<figure class="miercoles-foto' + (hayFoto ? "" : " is-reservada") + '">' +
+    (hayFoto ? crearFoto(MIERCOLES_IMAGEN, "miercoles-img") : MARCADOR_FOTO) +
+    '</figure>';
 }
 
 function dibujarUbicacion() {
@@ -332,7 +332,7 @@ function activarNavegacionActiva() {
 }
 
 function mostrarAvisoDeDemostracion() {
-  const hayDemo = PRODUCTOS.concat(MIERCOLES_MIL).some(function (p) { return p.demo; });
+  const hayDemo = PRODUCTOS.some(function (p) { return p.demo; });
   const aviso = document.getElementById("demo-notice");
   if (aviso) aviso.hidden = !hayDemo;
 }

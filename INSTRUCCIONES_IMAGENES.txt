@@ -119,8 +119,8 @@ La categoría decide cómo se muestra el producto:
     número, nombre, descripción y precio.
   - Especialidades, Rapiditas, Extras y Bebidas: lista sencilla con
     nombre, descripción y precio. Estas categorías NO muestran fotos.
-  - Miércoles de mil: lista aparte (MIERCOLES_MIL). Muestra foto
-    solo si el producto tiene una.
+  - Miércoles de mil: una sola imagen (MIERCOLES_IMAGEN en script.js).
+    Guardala en imagenes/ y escribí su nombre en  imagen: "...".
 
 Pasos:
 
@@ -244,7 +244,7 @@ grupos, usá prefijos en el nombre del archivo:
                               caja-familiar.jpg
   Portada:                    portada.jpg
   Mascota (perritos):         mascota-perros.jpg, mascota-perritos.jpg
-  Miércoles de mil:           miercoles-mil-1.jpg, miercoles-mil-2.jpg
+  Miércoles de mil:           miercoles-mil.jpg
   Logotipo:                   logo-soda-flory.png
 
 Conservá una copia de las fotos originales en otra carpeta de tu
