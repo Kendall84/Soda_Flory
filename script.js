@@ -6,6 +6,7 @@
      - CATEGORIAS      (categorías y su orden)
      - PRODUCTOS       (todo el menú, incluidas las cajas)
      - MIERCOLES_MIL   (productos de la promoción)
+   Productos de lista con varios precios: usá  variantes: [{ etiqueta: "Solo", precio: 1300 }, …]
    Cada elemento con  demo: true  es un dato de demostración.
    Cuando tengás el dato real, cambialo y quitá esa línea.
 
@@ -52,8 +53,10 @@ const CONFIG = {
 const CATEGORIAS = [
   { nombre: "Big Box",                formato: "tarjetas" },
   { nombre: "Cajitas y Combos Flory", formato: "tarjetas" },
-  { nombre: "Especialidades",         formato: "lista" },
-  { nombre: "Rapiditas",              formato: "lista" },
+  { nombre: "Especialidades",         formato: "lista",
+    nota: "En nachos, papanachos, supremas y chalupona, la versión solo de carne cuesta ₡400 más." },
+  { nombre: "Rapiditas",              formato: "lista",
+    nota: "Cualquier empanada solo de carne cuesta ₡400 adicionales." },
   { nombre: "Extras",                 formato: "lista" },
   { nombre: "Bebidas",                formato: "lista" }
 ];
@@ -90,20 +93,48 @@ const PRODUCTOS = [
   { id: "cajita-10", numero: 10, categoria: "Cajitas y Combos Flory", nombre: "2 burritos y 2 tacos con salchipapas", precio: 3400, imagen: "" },
   { id: "cajita-11", numero: 11, categoria: "Cajitas y Combos Flory", nombre: "Salchipapas grandes con 3 tacos de carne mexicana, pico de gallo y salsas", precio: 3800, imagen: "caja-de-tacos.jpg" },
 
-  // ===== ESPECIALIDADES (DEMOSTRACIÓN: reemplazar con el menú real) =====
-  { id: "demo-especialidad-1", categoria: "Especialidades", nombre: "Especialidad de ejemplo 1", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 4000, imagen: "", demo: true },
-  { id: "demo-especialidad-2", categoria: "Especialidades", nombre: "Especialidad de ejemplo 2", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 4500, imagen: "", demo: true },
+  // ===== ESPECIALIDADES =====
+  { id: "esp-nachos", numero: 1, categoria: "Especialidades", nombre: "Nachos mixtos", precio: 3200 },
+  { id: "esp-papanachos", numero: 2, categoria: "Especialidades", nombre: "Papanachos mixtos", precio: 3800 },
+  { id: "esp-supremas", numero: 3, categoria: "Especialidades", nombre: "Supremas", precio: 3500 },
+  { id: "esp-chalupona", categoria: "Especialidades", nombre: "Chalupona", variantes: [{ etiqueta: "Sola", precio: 2500 }, { etiqueta: "Con papas", precio: 3000 }] },
+  { id: "esp-patacon", categoria: "Especialidades", nombre: "Patacón", descripcion: "Carne desmechada, pico de gallo, salsas y queso.", precio: 2800 },
+  { id: "esp-alas", numero: 12, categoria: "Especialidades", nombre: "Alas de pollo", descripcion: "Todas incluyen papas y doraditas.", nota: "Salsa a escoger: búfalo, barbacoa o mostaza miel (₡300 adicional).", variantes: [{ etiqueta: "4 piezas", precio: 1500 }, { etiqueta: "8 piezas", precio: 3000 }, { etiqueta: "12 piezas", precio: 4000 }] },
+  { id: "esp-pollo", numero: 8, categoria: "Especialidades", nombre: "Pollo", variantes: [{ etiqueta: "Porción, 2 piezas", precio: 1400 }, { etiqueta: "Con ensalada y papas, 2 piezas", precio: 2500 }] },
+  { id: "esp-costilla", numero: 11, categoria: "Especialidades", nombre: "Costilla", descripcion: "Con yuca, papas o tajadas a escoger.", precio: 3800 },
+  { id: "esp-vigoron", categoria: "Especialidades", nombre: "Vigorón con chicharrón", descripcion: "Con yuca, tajada y ensalada.", variantes: [{ etiqueta: "Pequeño", precio: 2900 }, { etiqueta: "Grande", precio: 3300 }] },
+  { id: "esp-chuleta", categoria: "Especialidades", nombre: "Chuleta", variantes: [{ etiqueta: "Sola con ensalada", precio: 1200 }, { etiqueta: "Con papas y ensalada", precio: 1700 }] },
+  { id: "esp-canton", categoria: "Especialidades", nombre: "Cantonés", variantes: [{ etiqueta: "Medio", precio: 2200 }, { etiqueta: "Entero", precio: 2800 }] },
+  { id: "esp-combo-canton", categoria: "Especialidades", nombre: "Combo cantonés con papas y ensalada", descripcion: "A escoger: chuleta, pollo, pescado o taco chino.", precio: 3500 },
+  { id: "esp-quesadilla", categoria: "Especialidades", nombre: "Quesadilla", precio: 2500 },
 
-  // ===== RAPIDITAS (DEMOSTRACIÓN: reemplazar con el menú real) =====
-  { id: "demo-rapidita-1", categoria: "Rapiditas", nombre: "Rapidita de ejemplo 1", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 2000, imagen: "", demo: true },
-  { id: "demo-rapidita-2", categoria: "Rapiditas", nombre: "Rapidita de ejemplo 2", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 2500, imagen: "", demo: true },
+  // ===== RAPIDITAS =====
+  { id: "rap-taco", numero: 1, categoria: "Rapiditas", nombre: "Taco", variantes: [{ etiqueta: "Solo", precio: 1300 }, { etiqueta: "Con papas", precio: 1800 }] },
+  { id: "rap-hamb", numero: 2, categoria: "Rapiditas", nombre: "Hamburguesa", variantes: [{ etiqueta: "Sola", precio: 1300 }, { etiqueta: "Con papas", precio: 2000 }] },
+  { id: "rap-hamb-esp", numero: 2, categoria: "Rapiditas", nombre: "Hamburguesa especial", variantes: [{ etiqueta: "Sola", precio: 1800 }, { etiqueta: "Con papas", precio: 2400 }] },
+  { id: "rap-hamb-deluxe", categoria: "Rapiditas", nombre: "Hamburguesa deluxe", descripcion: "Doble torta, jamón, tocino y carne desmechada.", variantes: [{ etiqueta: "Sola", precio: 2400 }, { etiqueta: "Con papas", precio: 3000 }] },
+  { id: "rap-perro", numero: 5, categoria: "Rapiditas", nombre: "Perro", variantes: [{ etiqueta: "Solo", precio: 750 }, { etiqueta: "Con papas", precio: 1500 }] },
+  { id: "rap-burro", numero: 6, categoria: "Rapiditas", nombre: "Burro", variantes: [{ etiqueta: "Solo", precio: 750 }, { etiqueta: "Con papas", precio: 1500 }] },
+  { id: "rap-burro-g", numero: 7, categoria: "Rapiditas", nombre: "Burro grande", variantes: [{ etiqueta: "Solo", precio: 1800 }, { etiqueta: "Con papas", precio: 3000 }] },
+  { id: "rap-doraditas", numero: 9, categoria: "Rapiditas", nombre: "Doraditas", variantes: [{ etiqueta: "Pequeñas", precio: 1000 }, { etiqueta: "Medianas", precio: 1500 }, { etiqueta: "Grandes", precio: 2000 }] },
+  { id: "rap-papas", categoria: "Rapiditas", nombre: "Papas", variantes: [{ etiqueta: "Pequeñas", precio: 1000 }, { etiqueta: "Medianas", precio: 1500 }, { etiqueta: "Grandes", precio: 2000 }] },
+  { id: "rap-salchipapas", categoria: "Rapiditas", nombre: "Salchipapas", variantes: [{ etiqueta: "Pequeña", precio: 1300 }, { etiqueta: "Mediana", precio: 1700 }, { etiqueta: "Extra grande", precio: 2300 }] },
+  { id: "rap-gallo", numero: 13, categoria: "Rapiditas", nombre: "Gallo de salchichón", variantes: [{ etiqueta: "Sencillo", precio: 1000 }, { etiqueta: "Doble", precio: 1800 }] },
+  { id: "rap-emp-peq", categoria: "Rapiditas", nombre: "Empanada pequeña", variantes: [{ etiqueta: "Sola", precio: 750 }, { etiqueta: "Con papas", precio: 1200 }] },
+  { id: "rap-emp-gde", categoria: "Rapiditas", nombre: "Empanada grande", variantes: [{ etiqueta: "Sola", precio: 1200 }, { etiqueta: "Arreglada", precio: 1600 }] },
+  { id: "rap-mega-emp", categoria: "Rapiditas", nombre: "Mega empanada", descripcion: "Arreglada con papas.", precio: 2600 },
+  { id: "rap-maduro", categoria: "Rapiditas", nombre: "Maduro con queso", precio: 1000 },
+  { id: "rap-tacos-chinos", categoria: "Rapiditas", nombre: "Tacos chinos", descripcion: "2 unidades.", precio: 1700 },
 
-  // ===== EXTRAS (DEMOSTRACIÓN: reemplazar con el menú real) =====
-  { id: "demo-extra-1", categoria: "Extras", nombre: "Extra de ejemplo", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 1000, imagen: "", demo: true },
+  // ===== EXTRAS =====
+  { id: "ext-salsa", categoria: "Extras", nombre: "Salsa adicional", descripcion: "Cualquier salsa, mayonesa con tomate.", precio: 400 },
+  { id: "ext-flan", categoria: "Extras", nombre: "Flan", precio: 500 },
+  { id: "ext-arroz", categoria: "Extras", nombre: "Arroz con leche", descripcion: "Solo fines de semana.", precio: 500 },
+  { id: "ext-gelatina", categoria: "Extras", nombre: "Gelatina tricolor", precio: 500 },
 
-  // ===== BEBIDAS (DEMOSTRACIÓN: reemplazar con el menú real) =====
-  { id: "demo-bebida-1", categoria: "Bebidas", nombre: "Bebida de ejemplo 1", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 800, imagen: "", demo: true },
-  { id: "demo-bebida-2", categoria: "Bebidas", nombre: "Bebida de ejemplo 2", descripcion: "Descripción de ejemplo. Reemplazar con el producto real.", precio: 1200, imagen: "", demo: true }
+  // ===== BEBIDAS =====
+  { id: "beb-gaseosa", categoria: "Bebidas", nombre: "Gaseosa", variantes: [{ etiqueta: "355 ml", precio: 450 }, { etiqueta: "Litro y medio", precio: 1500 }] },
+  { id: "beb-fresco", categoria: "Bebidas", nombre: "Fresco natural", precio: 500 }
 ];
 
 // ---- Miércoles de mil (DEMOSTRACIÓN: productos pendientes de confirmar) ----
@@ -193,11 +224,19 @@ function dibujarFiltroCategorias() {
 }
 
 function crearFilaMenu(item) {
-  if (!esPrecioValido(item.precio)) return "";
+  const variantes = Array.isArray(item.variantes) ? item.variantes.filter(function (x) { return esPrecioValido(x.precio); }) : [];
+  if (!esPrecioValido(item.precio) && variantes.length === 0) return "";
+  const numero = item.numero ? '<span class="menu-row-num">Nº ' + escaparHtml(item.numero) + '</span>' : "";
   const descripcion = item.descripcion ? '<div class="menu-row-desc">' + escaparHtml(item.descripcion) + '</div>' : "";
-  return '<li class="menu-row">' +
-    '<div class="menu-row-text"><div class="menu-row-name">' + escaparHtml(item.nombre) + '</div>' + descripcion + '</div>' +
-    '<span class="menu-row-price">' + formatearColones(item.precio) + '</span>' +
+  const nota = item.nota ? '<div class="menu-row-nota">' + escaparHtml(item.nota) + '</div>' : "";
+  const precios = variantes.length
+    ? '<ul class="menu-variantes">' + variantes.map(function (x) {
+        return '<li><span>' + escaparHtml(x.etiqueta) + '</span><strong>' + formatearColones(x.precio) + '</strong></li>';
+      }).join("") + '</ul>'
+    : '<span class="menu-row-price">' + formatearColones(item.precio) + '</span>';
+  return '<li class="menu-row' + (variantes.length ? ' tiene-variantes' : '') + '">' +
+    '<div class="menu-row-text"><div class="menu-row-name">' + numero + escaparHtml(item.nombre) + '</div>' + descripcion + nota + '</div>' +
+    precios +
   '</li>';
 }
 
@@ -214,7 +253,8 @@ function dibujarMenu() {
       ? '<div class="product-grid">' + items.map(function (i) { return crearTarjeta(i, false); }).join("") + '</div>'
       : '<ul class="menu-list">' + items.map(crearFilaMenu).join("") + '</ul>';
     return '<section class="menu-group" aria-label="' + escaparHtml(categoria.nombre) + '">' +
-      '<h3 class="menu-group-title">' + escaparHtml(categoria.nombre) + '</h3>' + contenido + '</section>';
+      '<h3 class="menu-group-title">' + escaparHtml(categoria.nombre) + '</h3>' +
+      (categoria.nota ? '<p class="menu-group-nota">' + escaparHtml(categoria.nota) + '</p>' : "") + contenido + '</section>';
   }).join("");
 
   contenedor.innerHTML = grupos || '<p>Pronto vamos a publicar los productos de esta categoría.</p>';

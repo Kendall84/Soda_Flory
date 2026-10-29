@@ -544,3 +544,16 @@ body.navidad .site-footer { border-top: 5px dotted var(--amarillo); }
 .diag-ok { color: #0d6b34; }
 .diag-fallo { color: #b02a20; }
 .diag-resumen { margin-bottom: 1rem; font-weight: 800; }
+
+/* ---- Menú en lista: variantes de precio, números y notas ---- */
+.menu-group-nota { margin: -0.25rem 0 0.6rem; font-size: 0.9rem; color: var(--tinta-suave); }
+.menu-row-num { display: inline-block; margin-right: 0.45rem; padding: 0.05rem 0.5rem; border-radius: 999px; background: var(--amarillo); color: #111; font-size: 0.75rem; font-weight: 800; vertical-align: middle; }
+.menu-row-nota { margin-top: 0.2rem; font-size: 0.85rem; font-weight: 600; color: var(--tinta-suave); }
+.menu-variantes { list-style: none; margin: 0; padding: 0; flex: none; min-width: 11.5rem; max-width: 50%; }
+.menu-variantes li { display: flex; justify-content: space-between; align-items: baseline; gap: 0.75rem; padding: 0.15rem 0; font-size: 0.92rem; }
+.menu-variantes li + li { border-top: 1px dashed var(--linea); }
+.menu-variantes strong { font-size: 1.05rem; color: var(--verde); white-space: nowrap; }
+@media (max-width: 560px) {
+  .menu-row.tiene-variantes { flex-direction: column; align-items: stretch; gap: 0.4rem; }
+  .menu-variantes { max-width: none; min-width: 0; }
+}
