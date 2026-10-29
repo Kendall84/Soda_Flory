@@ -352,6 +352,15 @@ function iniciarPagina() {
   dibujarUbicacion();
   activarNavegacionActiva();
 
+  // "Inicio" y el logo llevan directo arriba del todo (sin deslizar poco a poco).
+  document.querySelectorAll('a[href="#inicio"]').forEach(function (enlaceInicio) {
+    enlaceInicio.addEventListener("click", function (evento) {
+      evento.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
+    });
+  });
+
   // "Cajas económicas" en la navegación abre el menú en las cajas
   document.querySelectorAll("[data-categoria-nav]").forEach(function (enlaceNav) {
     enlaceNav.addEventListener("click", function () {
