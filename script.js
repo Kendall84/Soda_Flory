@@ -181,7 +181,7 @@ function crearFoto(item, clase) {
   if (!item.imagen) return "";
   const ruta = escaparHtml(CONFIG.carpetaImagenes + item.imagen);
   return '<img class="' + clase + '" src="' + ruta + '" alt="' + escaparHtml(item.nombre) +
-    '" loading="lazy" data-quitar-si-falla>';
+    '" loading="lazy" decoding="async" data-quitar-si-falla>';
 }
 
 // Si un archivo de foto no existe, se quita la imagen sin dejar un hueco.
@@ -295,7 +295,7 @@ function dibujarMiercoles() {
   const hayFoto = Boolean(MIERCOLES_IMAGEN.imagen);
   document.getElementById("miercoles-grid").innerHTML =
     '<figure class="miercoles-foto' + (hayFoto ? "" : " is-reservada") + '">' +
-    (hayFoto ? crearFoto(MIERCOLES_IMAGEN, "miercoles-img") : MARCADOR_FOTO) +
+    (hayFoto ? crearFoto(MIERCOLES_IMAGEN, "miercoles-img").replace("<img ", '<img width="612" height="870" ') : MARCADOR_FOTO) +
     '</figure>';
 }
 
