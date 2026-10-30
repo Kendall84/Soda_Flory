@@ -89,7 +89,7 @@ const PRODUCTOS = [
   { id: "cajita-7",  numero: 7,  categoria: "Cajitas y Combos Flory", nombre: "1 hamburguesa, 1 burrito y 1 empanada con papas y doraditas", precio: 3700, imagen: "" },
   { id: "cajita-8",  numero: 8,  categoria: "Cajitas y Combos Flory", nombre: "4 piezas de alas con chicharrón, papas, doraditas y ensalada", precio: 3600, imagen: "" },
   { id: "cajita-9",  numero: 9,  categoria: "Cajitas y Combos Flory", nombre: "2 hamburguesas y 2 burros con papas y doraditas", precio: 4400, imagen: "caja-2-hamburguesas-2-burros.jpg" },
-  { id: "cajita-10", numero: 10, categoria: "Cajitas y Combos Flory", nombre: "2 burritos y 2 tacos con salchipapas", precio: 3400, imagen: "" },
+  { id: "cajita-10", numero: 10, categoria: "Cajitas y Combos Flory", nombre: "2 burritos y 2 tacos con salchipapas", precio: 3400, imagen: "caja-burritos-tacos-salchipapas.jpg" },
   { id: "cajita-11", numero: 11, categoria: "Cajitas y Combos Flory", nombre: "Salchipapas grandes con 3 tacos de carne mexicana, pico de gallo y salsas", precio: 3800, imagen: "caja-de-tacos.jpg" },
 
   // ===== ESPECIALIDADES =====
@@ -119,9 +119,9 @@ const PRODUCTOS = [
   { id: "rap-papas", numero: 9, categoria: "Rapiditas", nombre: "Papas", variantes: [{ etiqueta: "Pequeñas", precio: 1000 }, { etiqueta: "Medianas", precio: 1500 }, { etiqueta: "Grandes", precio: 2000 }] },
   { id: "rap-salchipapas", numero: 10, categoria: "Rapiditas", nombre: "Salchipapas", variantes: [{ etiqueta: "Pequeña", precio: 1300 }, { etiqueta: "Mediana", precio: 1700 }, { etiqueta: "Extra grande", precio: 2300 }] },
   { id: "rap-gallo", numero: 11, categoria: "Rapiditas", nombre: "Gallo de salchichón", variantes: [{ etiqueta: "Sencillo", precio: 1000 }, { etiqueta: "Doble", precio: 1800 }] },
-  { id: "rap-emp-peq", numero: 12, categoria: "Rapiditas", nombre: "Empanada pequeña", nota: "Solo carne: ₡400 adicionales.", variantes: [{ etiqueta: "Sola", precio: 750 }, { etiqueta: "Con papas", precio: 1200 }] },
-  { id: "rap-emp-gde", numero: 13, categoria: "Rapiditas", nombre: "Empanada grande", nota: "Solo carne: ₡400 adicionales.", variantes: [{ etiqueta: "Sola", precio: 1200 }, { etiqueta: "Arreglada", precio: 1600 }] },
-  { id: "rap-mega-emp", numero: 14, categoria: "Rapiditas", nombre: "Mega empanada", nota: "Solo carne: ₡400 adicionales.", descripcion: "Arreglada con papas.", precio: 2600 },
+  { id: "rap-emp-peq", numero: 12, categoria: "Rapiditas", nombre: "Empanada pequeña mixta", nota: "Solo carne: ₡400 adicionales.", variantes: [{ etiqueta: "Sola", precio: 750 }, { etiqueta: "Con papas", precio: 1200 }] },
+  { id: "rap-emp-gde", numero: 13, categoria: "Rapiditas", nombre: "Empanada grande mixta", nota: "Solo carne: ₡400 adicionales.", variantes: [{ etiqueta: "Sola", precio: 1200 }, { etiqueta: "Arreglada", precio: 1500 }] },
+  { id: "rap-mega-emp", numero: 14, categoria: "Rapiditas", nombre: "Mega empanada mixta", nota: "Solo carne: ₡400 adicionales.", descripcion: "Arreglada con papas.", precio: 2600 },
   { id: "rap-maduro", numero: 15, categoria: "Rapiditas", nombre: "Maduro con queso", precio: 1000 },
   { id: "rap-tacos-chinos", numero: 16, categoria: "Rapiditas", nombre: "Tacos chinos", descripcion: "2 unidades.", precio: 1700 },
 
@@ -174,8 +174,8 @@ function construirEnlaceWhatsApp(mensaje) {
 // Foto solo si existe el nombre del archivo; si no, no se dibuja nada.
 // Si el archivo no se encuentra, la foto se quita sin dejar un hueco.
 const MARCADOR_FOTO = '<div class="photo-reservada" aria-hidden="true">' +
-  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>' +
-  '<span>Soda Flory</span></div>';
+  '<img class="logo-reservado" src="' + CONFIG.carpetaImagenes + 'logo-soda-flory.png" width="320" height="320" alt="" loading="lazy" decoding="async">' +
+  '</div>';
 
 function crearFoto(item, clase) {
   if (!item.imagen) return "";

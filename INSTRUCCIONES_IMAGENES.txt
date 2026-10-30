@@ -115,7 +115,7 @@ Todo el menú está en una sola lista, PRODUCTOS, dentro de script.js.
 La categoría decide cómo se muestra el producto:
 
   - Big Box y Cajitas y Combos Flory: tarjeta con espacio de foto
-    (si no hay foto se ve el recuadro negro con la caja amarilla),
+    (si no hay foto se ve el recuadro negro con el logo de Soda Flory),
     número, nombre, descripción y precio.
   - Especialidades, Rapiditas, Extras y Bebidas: lista sencilla con
     nombre, descripción y precio. Estas categorías NO muestran fotos.
