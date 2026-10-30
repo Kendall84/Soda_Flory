@@ -69,27 +69,27 @@ const NOTA_SALSAS = "Salsa a escoger: BBQ, mostaza miel o búfalo.";
 const PRODUCTOS = [
   // ===== BIG BOX =====
   { id: "bigbox-1",  numero: 1, categoria: "Big Box", nombre: "Chicken Flory", descripcion: "6 piezas de pollo con papas, doraditas y ensalada.", precio: 5500, imagen: "caja-chicken.jpg" },
-  { id: "bigbox-2a", numero: 2, categoria: "Big Box", nombre: "Mega Chicken (solas)", descripcion: "10 piezas de pollo solas.", nota: NOTA_SALSAS, precio: 6500, imagen: "" },
+  { id: "bigbox-2a", numero: 2, categoria: "Big Box", nombre: "Mega Chicken (solas)", descripcion: "10 piezas de pollo solas.", nota: NOTA_SALSAS, precio: 6500, imagen: "caja-mega-chicken.jpg" },
   { id: "bigbox-2b", numero: 3, categoria: "Big Box", nombre: "Mega Chicken con mega papas", descripcion: "10 piezas de pollo con mega papas.", nota: NOTA_SALSAS, precio: 8600, imagen: "" },
   { id: "bigbox-3",  numero: 4, categoria: "Big Box", nombre: "Mini Flower", descripcion: "2 empanadas, 2 rollos de tacos, 2 burritos, 1 hamburguesa, 1 perro, papas y doraditas.", precio: 6800, imagen: "caja-mini-flower.jpg" },
   { id: "bigbox-4",  numero: 5, categoria: "Big Box", nombre: "Bomba Mixta", descripcion: "Caja pizzera con una capa de nachos con carnes mixtas, seguida de una capa de papas con más carnes mixtas, salchichas y pepperoni, con nuestras deliciosas salsas y pico de gallo.", precio: 7600, imagen: "caja-bomba.jpg" },
   { id: "bigbox-5",  numero: 6, categoria: "Big Box", nombre: "Caja 3x3", descripcion: "3 hamburguesas y 3 empanadas pequeñas.", precio: 4900, imagen: "caja-3x3.jpg" },
-  { id: "bigbox-6",  numero: 7, categoria: "Big Box", nombre: "Caja Flory Empanadas", descripcion: "5 empanadas arregladas con papas y doraditas.", precio: 5000, imagen: "" },
+  { id: "bigbox-6",  numero: 7, categoria: "Big Box", nombre: "Caja Flory Empanadas", descripcion: "5 empanadas arregladas con papas y doraditas.", precio: 5000, imagen: "caja-flory-empanadas.jpg" },
   { id: "bigbox-7",  numero: 8, categoria: "Big Box", nombre: "Caja para Compartir", descripcion: "4 hamburguesas con 3 salchipapas.", precio: 5600, imagen: "" },
-  { id: "bigbox-8",  numero: 9, categoria: "Big Box", nombre: "Caja Mixta", descripcion: "3 hamburguesas, 1 perro y 1 burrito con papas y doraditas.", precio: 5400, imagen: "" },
+  { id: "bigbox-8",  numero: 9, categoria: "Big Box", nombre: "Caja Mixta", descripcion: "3 hamburguesas, 1 perro y 1 burrito con papas y doraditas.", precio: 5400, imagen: "caja-mixta.jpg" },
   { id: "bigbox-9",  numero: 10, categoria: "Big Box", nombre: "Caja Familiar", descripcion: "Un entero de cantones con 4 piezas de pollo, 4 piezas de alas, 2 tacos chinos, 1 chuleta, 1 gallo de salchichón con papas y una gaseosa de 1.5 L.", precio: 12300, imagen: "" },
   { id: "bigbox-10", numero: 11, categoria: "Big Box", nombre: "La Tóxica", descripcion: "2 hamburguesas, 2 tacos con papas y nachos medianos mixtos.", precio: 5700, imagen: "caja-la-toxica.jpg" },
 
   // ===== CAJITAS Y COMBOS FLORY =====
   { id: "cajita-1",  numero: 1,  categoria: "Cajitas y Combos Flory", nombre: "4 piezas de pollo con papas y doraditas", precio: 3800, imagen: "caja-4-piezas-de-pollo.jpg" },
   { id: "cajita-2",  numero: 2,  categoria: "Cajitas y Combos Flory", nombre: "2 rollos de tacos y 2 piezas de pollo con papas y doraditas", precio: 3300, imagen: "caja-flory-1.jpg" },
-  { id: "cajita-3",  numero: 3,  categoria: "Cajitas y Combos Flory", nombre: "1 hamburguesa y 2 piezas de pollo con papas y doraditas", precio: 3300, imagen: "" },
-  { id: "cajita-4",  numero: 4,  categoria: "Cajitas y Combos Flory", nombre: "1 hamburguesa y 2 rollos de tacos con papas y doraditas", precio: 3300, imagen: "" },
+  { id: "cajita-3",  numero: 3,  categoria: "Cajitas y Combos Flory", nombre: "1 hamburguesa y 2 piezas de pollo con papas y doraditas", precio: 3300, imagen: "caja-hamburguesa-pollo.jpg" },
+  { id: "cajita-4",  numero: 4,  categoria: "Cajitas y Combos Flory", nombre: "1 hamburguesa y 2 rollos de tacos con papas y doraditas", precio: 3300, imagen: "caja-hamburguesa-tacos.jpg" },
   { id: "cajita-5",  numero: 5,  categoria: "Cajitas y Combos Flory", nombre: "2 hamburguesas con salchipapas", precio: 3600, imagen: "" },
-  { id: "cajita-6",  numero: 6,  categoria: "Cajitas y Combos Flory", nombre: "2 burros grandes con papas y doraditas", precio: 4300, imagen: "" },
+  { id: "cajita-6",  numero: 6,  categoria: "Cajitas y Combos Flory", nombre: "2 burros grandes con papas y doraditas", precio: 4300, imagen: "caja-2-burros.jpg" },
   { id: "cajita-7",  numero: 7,  categoria: "Cajitas y Combos Flory", nombre: "1 hamburguesa, 1 burrito y 1 empanada con papas y doraditas", precio: 3700, imagen: "" },
   { id: "cajita-8",  numero: 8,  categoria: "Cajitas y Combos Flory", nombre: "4 piezas de alas con chicharrón, papas, doraditas y ensalada", precio: 3600, imagen: "" },
-  { id: "cajita-9",  numero: 9,  categoria: "Cajitas y Combos Flory", nombre: "2 hamburguesas y 2 burros con papas y doraditas", precio: 4400, imagen: "" },
+  { id: "cajita-9",  numero: 9,  categoria: "Cajitas y Combos Flory", nombre: "2 hamburguesas y 2 burros con papas y doraditas", precio: 4400, imagen: "caja-2-hamburguesas-2-burros.jpg" },
   { id: "cajita-10", numero: 10, categoria: "Cajitas y Combos Flory", nombre: "2 burritos y 2 tacos con salchipapas", precio: 3400, imagen: "" },
   { id: "cajita-11", numero: 11, categoria: "Cajitas y Combos Flory", nombre: "Salchipapas grandes con 3 tacos de carne mexicana, pico de gallo y salsas", precio: 3800, imagen: "caja-de-tacos.jpg" },
 
@@ -142,8 +142,8 @@ const PRODUCTOS = [
 // Cuando tengás la foto: guardala en imagenes/ y escribí su nombre en  imagen
 // (por ejemplo "miercoles-mil.jpg"). Mientras esté vacío se muestra el espacio reservado.
 const MIERCOLES_IMAGEN = {
-  imagen: "",
-  nombre: "Productos del Miércoles de mil en Soda Flory"
+  imagen: "miercoles-mil.jpg",
+  nombre: "Soda Flory, todo a mil: pollo con papas, burro con papas, taco con papas, nugget con papas, alitas con papas, patacón con papas, perro con papas, gallo de salchichón, empanada con papas, hamburguesas, salchinachito, chuleta y plátano maduro"
 };
 
 
