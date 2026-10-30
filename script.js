@@ -55,8 +55,7 @@ const CATEGORIAS = [
   { nombre: "Cajitas y Combos Flory", formato: "tarjetas" },
   { nombre: "Especialidades",         formato: "lista",
     nota: "En nachos, papanachos, supremas y chalupona, la versión solo de carne cuesta ₡400 más." },
-  { nombre: "Rapiditas",              formato: "lista",
-    nota: "Cualquier empanada solo de carne cuesta ₡400 adicionales." },
+  { nombre: "Rapiditas",              formato: "lista" },
   { nombre: "Extras",                 formato: "lista" },
   { nombre: "Bebidas",                formato: "lista" }
 ];
@@ -120,9 +119,9 @@ const PRODUCTOS = [
   { id: "rap-papas", numero: 9, categoria: "Rapiditas", nombre: "Papas", variantes: [{ etiqueta: "Pequeñas", precio: 1000 }, { etiqueta: "Medianas", precio: 1500 }, { etiqueta: "Grandes", precio: 2000 }] },
   { id: "rap-salchipapas", numero: 10, categoria: "Rapiditas", nombre: "Salchipapas", variantes: [{ etiqueta: "Pequeña", precio: 1300 }, { etiqueta: "Mediana", precio: 1700 }, { etiqueta: "Extra grande", precio: 2300 }] },
   { id: "rap-gallo", numero: 11, categoria: "Rapiditas", nombre: "Gallo de salchichón", variantes: [{ etiqueta: "Sencillo", precio: 1000 }, { etiqueta: "Doble", precio: 1800 }] },
-  { id: "rap-emp-peq", numero: 12, categoria: "Rapiditas", nombre: "Empanada pequeña", variantes: [{ etiqueta: "Sola", precio: 750 }, { etiqueta: "Con papas", precio: 1200 }] },
-  { id: "rap-emp-gde", numero: 13, categoria: "Rapiditas", nombre: "Empanada grande", variantes: [{ etiqueta: "Sola", precio: 1200 }, { etiqueta: "Arreglada", precio: 1600 }] },
-  { id: "rap-mega-emp", numero: 14, categoria: "Rapiditas", nombre: "Mega empanada", descripcion: "Arreglada con papas.", precio: 2600 },
+  { id: "rap-emp-peq", numero: 12, categoria: "Rapiditas", nombre: "Empanada pequeña", nota: "Solo carne: ₡400 adicionales.", variantes: [{ etiqueta: "Sola", precio: 750 }, { etiqueta: "Con papas", precio: 1200 }] },
+  { id: "rap-emp-gde", numero: 13, categoria: "Rapiditas", nombre: "Empanada grande", nota: "Solo carne: ₡400 adicionales.", variantes: [{ etiqueta: "Sola", precio: 1200 }, { etiqueta: "Arreglada", precio: 1600 }] },
+  { id: "rap-mega-emp", numero: 14, categoria: "Rapiditas", nombre: "Mega empanada", nota: "Solo carne: ₡400 adicionales.", descripcion: "Arreglada con papas.", precio: 2600 },
   { id: "rap-maduro", numero: 15, categoria: "Rapiditas", nombre: "Maduro con queso", precio: 1000 },
   { id: "rap-tacos-chinos", numero: 16, categoria: "Rapiditas", nombre: "Tacos chinos", descripcion: "2 unidades.", precio: 1700 },
 
@@ -133,7 +132,7 @@ const PRODUCTOS = [
   { id: "ext-gelatina", categoria: "Extras", nombre: "Gelatina tricolor", precio: 500 },
 
   // ===== BEBIDAS =====
-  { id: "beb-gaseosa", categoria: "Bebidas", nombre: "Gaseosa", variantes: [{ etiqueta: "Pequeña", precio: 400 }, { etiqueta: "355 ml", precio: 450 }, { etiqueta: "Litro y medio", precio: 1500 }, { etiqueta: "Grande", precio: 1550 }] },
+  { id: "beb-gaseosa", categoria: "Bebidas", nombre: "Gaseosa", variantes: [{ etiqueta: "250 ml", precio: 350 }, { etiqueta: "Litro y medio (1,5 L)", precio: 1550 }] },
   { id: "beb-fresco", categoria: "Bebidas", nombre: "Fresco natural", precio: 500 }
 ];
 
