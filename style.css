@@ -566,3 +566,18 @@ body.navidad .site-footer { border-top: 5px dotted var(--amarillo); }
 
 /* Espacio de foto sin foto todavía: logo de Soda Flory */
 .product-media .photo-reservada .logo-reservado { position: static; inset: auto; width: 58%; max-width: 200px; height: auto; aspect-ratio: 1; object-fit: contain; display: block; }
+
+/* ---- Horario de atención ---- */
+.horario-card { margin-top: 1rem; background: var(--papel); border: 1px solid var(--linea); border-radius: var(--radio); padding: 1rem 1.1rem; }
+.horario-titulo { font-size: 1.25rem; margin-bottom: 0.5rem; }
+.horario-lista { list-style: none; margin: 0; padding: 0; }
+.horario-fila { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.1rem 1rem; padding: 0.6rem 0.6rem; border-bottom: 1px solid var(--linea); border-radius: 10px; }
+.horario-fila:last-child { border-bottom: 0; }
+.horario-dia { font-weight: 700; }
+.horario-horas { font-weight: 600; text-align: right; white-space: nowrap; }
+.horario-fila.es-cerrado .horario-horas { color: #c0392b; font-weight: 800; }
+.horario-fila.es-hoy { background: var(--verde-claro); }
+.horario-hoy { display: inline-block; margin-left: 0.4rem; padding: 0.05rem 0.5rem; border-radius: 999px; background: var(--amarillo); color: #111; font-size: 0.72rem; font-style: normal; font-weight: 800; vertical-align: middle; }
+.footer-horario { font-size: 0.9rem; display: grid; gap: 0.1rem; margin: 0.4rem 0; }
+.footer-horario-titulo { font-weight: 800; }
+@media (max-width: 480px) { .horario-fila { font-size: 0.95rem; } .horario-horas { margin-left: auto; } }

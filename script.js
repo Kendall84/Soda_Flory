@@ -6,6 +6,7 @@
      - CATEGORIAS      (categorías y su orden)
      - PRODUCTOS       (todo el menú, incluidas las cajas)
      - MIERCOLES_IMAGEN (imagen única de la promoción)
+     - HORARIOS        (horario de atención)
    Productos de lista con varios precios: usá  variantes: [{ etiqueta: "Solo", precio: 1300 }, …]
    Cada elemento con  demo: true  es un dato de demostración.
    Cuando tengás el dato real, cambialo y quitá esa línea.
@@ -134,6 +135,16 @@ const PRODUCTOS = [
   // ===== BEBIDAS =====
   { id: "beb-gaseosa", categoria: "Bebidas", nombre: "Gaseosa", variantes: [{ etiqueta: "250 ml", precio: 350 }, { etiqueta: "Litro y medio (1,5 L)", precio: 1550 }] },
   { id: "beb-fresco", categoria: "Bebidas", nombre: "Fresco natural", precio: 500 }
+];
+
+// ---- Horario de atención ----
+// dias: números de día (0 = domingo, 1 = lunes … 6 = sábado), sirve para marcar "Hoy".
+// cerrado: true = ese día no se atiende.
+const HORARIOS = [
+  { dias: [2, 3, 4], nombre: "Martes a jueves", horas: "12:30 p. m. a 12:00 a. m." },
+  { dias: [5, 6],    nombre: "Viernes y sábado", horas: "12:30 p. m. a 1:00 a. m." },
+  { dias: [0],       nombre: "Domingo",          horas: "12:30 p. m. a 10:30 p. m." },
+  { dias: [1],       nombre: "Lunes",            horas: "Cerrado", cerrado: true }
 ];
 
 // ---- Miércoles de mil ----
@@ -316,6 +327,34 @@ function dibujarUbicacion() {
 }
 
 // Marca en la navegación la sección que se está viendo.
+// Día de la semana en Costa Rica (0 = domingo … 6 = sábado), sin depender de la zona del celular.
+function diaDeHoyEnCostaRica() {
+  try {
+    const nombre = new Intl.DateTimeFormat("en-US", { weekday: "short", timeZone: "America/Costa_Rica" }).format(new Date());
+    return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(nombre);
+  } catch (e) { return -1; }
+}
+
+function dibujarHorario() {
+  const hoy = diaDeHoyEnCostaRica();
+  const filas = HORARIOS.map(function (h) {
+    const esHoy = h.dias.indexOf(hoy) !== -1;
+    return '<li class="horario-fila' + (esHoy ? " es-hoy" : "") + (h.cerrado ? " es-cerrado" : "") + '">' +
+      '<span class="horario-dia">' + escaparHtml(h.nombre) + (esHoy ? ' <em class="horario-hoy">Hoy</em>' : "") + '</span>' +
+      '<span class="horario-horas">' + escaparHtml(h.horas) + '</span></li>';
+  }).join("");
+  const tarjeta = document.getElementById("horario-contenido");
+  if (tarjeta) {
+    tarjeta.innerHTML = '<h3 class="horario-titulo">Horario de atención</h3><ul class="horario-lista">' + filas + '</ul>';
+  }
+  const pie = document.getElementById("footer-horario");
+  if (pie) {
+    pie.innerHTML = '<p class="footer-horario-titulo">Horario</p>' + HORARIOS.map(function (h) {
+      return '<p>' + escaparHtml(h.nombre) + ': ' + escaparHtml(h.horas) + '</p>';
+    }).join("");
+  }
+}
+
 function activarNavegacionActiva() {
   const enlaces = Array.from(document.querySelectorAll(".main-nav a"));
   function marcar(hash) {
@@ -349,6 +388,7 @@ function iniciarPagina() {
   dibujarMenu();
   dibujarMiercoles();
   dibujarUbicacion();
+  dibujarHorario();
   activarNavegacionActiva();
 
   // "Inicio" y el logo llevan directo arriba del todo (sin deslizar poco a poco).

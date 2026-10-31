@@ -20,6 +20,7 @@ LISTA_DE_FOTOS_CAJAS.txt    Qué foto va en cada caja
 
 - Número de WhatsApp: `CONFIG.numeroWhatsApp` (formato internacional, sin `+`).
 - Precios y productos: lista `PRODUCTOS`.
+- Horario de atención: lista `HORARIOS`.
 - Fotos: guardar en `imagenes/` y escribir el nombre en el campo `imagen`.
 - Después de cambiar `script.js` o `style.css`, subir también el número de versión
   (`?v=`) en `index.html` para que los celulares descarguen la versión nueva.
