@@ -8,8 +8,6 @@
      - MIERCOLES_IMAGEN (imagen única de la promoción)
      - HORARIOS        (horario de atención)
    Productos de lista con varios precios: usá  variantes: [{ etiqueta: "Solo", precio: 1300 }, …]
-   Cada elemento con  demo: true  es un dato de demostración.
-   Cuando tengás el dato real, cambialo y quitá esa línea.
 
    FOTOS: si un elemento tiene  imagen con el nombre del archivo  se muestra
    la foto; si dice  imagen: ""  simplemente no se muestra nada
@@ -44,7 +42,6 @@ const CONFIG = {
      precio       número en colones, sin símbolo ni puntos (ej. 3500)
      categoria    solo para PRODUCTOS (debe estar en CATEGORIAS)
      imagen       nombre del archivo dentro de /imagenes ("" si no hay foto)
-     demo         true = dato de demostración (mostrar etiqueta)
    ========================================================== */
 
 // Categorías del menú, en el orden en que aparecen en pantalla.
@@ -210,10 +207,6 @@ document.addEventListener("error", function (evento) {
   }
 }, true);
 
-function crearEtiquetaDemo(item) {
-  return item.demo ? '<span class="badge badge-pending">Demostración</span>' : "";
-}
-
 
 /* ==========================================================
    4. PANTALLA
@@ -289,12 +282,12 @@ function crearTarjeta(item, esPromo) {
     ? '<div class="product-media' + (reservar ? ' is-reservada' : '') + '">' + (item.imagen ? crearFoto(item, "product-photo") : MARCADOR_FOTO) + '</div>'
     : "";
   const numero = item.numero ? '<span class="badge badge-num">Nº ' + escaparHtml(item.numero) + '</span>' : "";
-  const insignia = esPromo ? '<span class="badge badge-promo">Miércoles de mil</span>' : crearEtiquetaDemo(item);
+  const insignia = esPromo ? '<span class="badge badge-promo">Miércoles de mil</span>' : "";
   const nota = item.nota ? '<p class="product-note">' + escaparHtml(item.nota) + '</p>' : "";
 
   return '<article class="product-card">' + foto +
     '<div class="product-body">' +
-      '<div class="product-tags">' + numero + insignia + (esPromo ? crearEtiquetaDemo(item) : "") + '</div>' +
+      '<div class="product-tags">' + numero + insignia + '</div>' +
       '<h3 class="product-name">' + escaparHtml(item.nombre) + '</h3>' +
       (item.descripcion ? '<p class="product-desc">' + escaparHtml(item.descripcion) + '</p>' : "") +
       incluye + nota +
@@ -369,12 +362,6 @@ function activarNavegacionActiva() {
   secciones.forEach(function (sec) { observador.observe(sec); });
 }
 
-function mostrarAvisoDeDemostracion() {
-  const hayDemo = PRODUCTOS.some(function (p) { return p.demo; });
-  const aviso = document.getElementById("demo-notice");
-  if (aviso) aviso.hidden = !hayDemo;
-}
-
 function iniciarPagina() {
   // Todos los botones de WhatsApp llevan directo al número configurado
   const enlace = construirEnlaceWhatsApp(CONFIG.mensajeGeneral);
@@ -383,7 +370,6 @@ function iniciarPagina() {
     if (el) el.href = enlace;
   });
 
-  mostrarAvisoDeDemostracion();
   dibujarFiltroCategorias();
   dibujarMenu();
   dibujarMiercoles();

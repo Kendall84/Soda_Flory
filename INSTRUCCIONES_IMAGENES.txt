@@ -154,8 +154,6 @@ Pasos:
        variantes: [{ etiqueta: "Solo", precio: 1300 }, { etiqueta: "Con papas", precio: 1800 }]
    - Para un aviso que aplica a toda una categoría, agregá  nota: "..."
      en esa categoría dentro de la lista CATEGORIAS.
-   - Quitá la línea  demo: true  cuando el dato sea real; así
-     desaparece la etiqueta "Demostración".
    - Guardá script.js y recargá la página (F5).
 
 
