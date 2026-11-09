@@ -98,7 +98,7 @@ const PRODUCTOS = [
   { id: "esp-patacon", numero: 5, categoria: "Especialidades", nombre: "Patacón", descripcion: "Carne desmechada, pico de gallo, salsas y queso.", precio: 2800 },
   { id: "esp-alas", numero: 6, categoria: "Especialidades", nombre: "Alas de pollo", descripcion: "Todas incluyen papas y doraditas.", nota: "Salsa a escoger: búfalo, barbacoa o mostaza miel (₡300 adicional).", variantes: [{ etiqueta: "4 piezas", precio: 1500 }, { etiqueta: "8 piezas", precio: 3000 }, { etiqueta: "12 piezas", precio: 4000 }] },
   { id: "esp-pollo", numero: 7, categoria: "Especialidades", nombre: "Pollo", variantes: [{ etiqueta: "Porción, 2 piezas", precio: 1400 }, { etiqueta: "Con ensalada y papas, 2 piezas", precio: 2500 }] },
-  { id: "esp-costilla", numero: 8, categoria: "Especialidades", nombre: "Costilla", descripcion: "Con yuca, papas o tajadas a escoger.", precio: 3800 },
+  { id: "esp-costilla", numero: 8, categoria: "Especialidades", nombre: "Costilla", descripcion: "Con yuca, papas o tajadas a escoger.", precio: 3500 },
   { id: "esp-vigoron", numero: 9, categoria: "Especialidades", nombre: "Vigorón con chicharrón", descripcion: "Con yuca, tajada y ensalada.", variantes: [{ etiqueta: "Pequeño", precio: 2900 }, { etiqueta: "Grande", precio: 3300 }] },
   { id: "esp-chuleta", numero: 10, categoria: "Especialidades", nombre: "Chuleta", variantes: [{ etiqueta: "Sola con ensalada", precio: 1200 }, { etiqueta: "Con papas y ensalada", precio: 1700 }] },
   { id: "esp-canton", numero: 11, categoria: "Especialidades", nombre: "Cantonés", variantes: [{ etiqueta: "Medio", precio: 2200 }, { etiqueta: "Entero", precio: 2800 }] },
