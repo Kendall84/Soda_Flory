@@ -100,7 +100,7 @@ const PRODUCTOS = [
   { id: "esp-pollo", numero: 7, categoria: "Especialidades", nombre: "Pollo", variantes: [{ etiqueta: "Porción, 2 piezas", precio: 1400 }, { etiqueta: "Con ensalada y papas, 2 piezas", precio: 2500 }] },
   { id: "esp-costilla", numero: 8, categoria: "Especialidades", nombre: "Costilla", descripcion: "Con yuca, papas o tajadas a escoger.", precio: 3500 },
   { id: "esp-vigoron", numero: 9, categoria: "Especialidades", nombre: "Vigorón con chicharrón", descripcion: "Con yuca, tajada y ensalada.", variantes: [{ etiqueta: "Pequeño", precio: 2900 }, { etiqueta: "Grande", precio: 3300 }] },
-  { id: "esp-chuleta", numero: 10, categoria: "Especialidades", nombre: "Chuleta", variantes: [{ etiqueta: "Sola con ensalada", precio: 1200 }, { etiqueta: "Con papas y ensalada", precio: 1700 }] },
+  { id: "esp-chuleta", numero: 10, categoria: "Especialidades", nombre: "Chuleta", variantes: [{ etiqueta: "Sola con ensalada", precio: 1200 }, { etiqueta: "Con papas y ensalada", precio: 1600 }] },
   { id: "esp-canton", numero: 11, categoria: "Especialidades", nombre: "Cantonés", variantes: [{ etiqueta: "Medio", precio: 2200 }, { etiqueta: "Entero", precio: 2800 }] },
   { id: "esp-combo-canton", numero: 12, categoria: "Especialidades", nombre: "Combo cantonés con papas y ensalada", descripcion: "A escoger: chuleta, pollo, pescado o taco chino.", precio: 3500 },
   { id: "esp-quesadilla", numero: 13, categoria: "Especialidades", nombre: "Quesadilla", precio: 2500 },
